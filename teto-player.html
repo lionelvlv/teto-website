@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <title>Page Title</title>
+</head>
+
+<body>
+    <button type="button" id="tetodegomusic" onclick="playtetodegomusic()">teto de go</button>
+    <script>
+        const tetodego = {
+            audio:  new Audio('./assets/music/tetodego.mp3'),
+            isPlaying: false,
+        }
+
+        function playtetodegomusic() {
+            if (!tetodego.isPlaying) {
+                tetodego.audio.play();
+            } else {
+                tetodego.audio.pause();
+            }
+            tetodego.isPlaying = !tetodego.isPlaying;
+        }
+    </script>
+</body>
+
+</html>
