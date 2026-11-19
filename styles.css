@@ -2,3 +2,8 @@
 	position: absolute;
 	user-select: none;
 }
+body {
+  background-image: url(./assets/Bliss.jpg);
+  background-size: cover;
+}
+
