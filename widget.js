@@ -8,7 +8,7 @@ function clicked(event) {
 	relY = rect.top - event.pageY;
 	element.classList.toggle("selected");
 }
-const widgets = document.getElementsByClassName("widgetBG");
+const widgets = document.getElementsByClassName("widgetUI");
 for (const i of widgets) {
 	i.addEventListener("click", clicked);
 }

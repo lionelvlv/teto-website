@@ -6,22 +6,43 @@
 </head>
 
 <body>
-			<div class="widget"> 
-				<div class="widgetBG"> </div>
-				<div class="widgetContent player">
-        	<button type="button" id="playbutton" onclick="togglemusic()">teto de go</button>
-        	<p id="current-time"></p> 
-        	<script src="teto-player.js"></script>
+			<div class="widget">
+				<div class="widgetUI"> 
+					<div class="widgetBar">
+						<img src="icon.png" height="15px">
+						Program 
+						<img src="close.png" height="15px" style="float:right;">
+						<img src="fullscreen.png" height="15px" style="float:right;">
+						<img src="minimize.png" height="15px" style="float:right;">
+					</div>
+					<div class="widgetBarBG"> </div> 
+					<div class="widgetBG"> </div>
 				</div>
-			</div>
+				<div class="widgetContent">
+					<div class="player">
+        		<button type="button" id="playbutton" onclick="togglemusic()">teto de go</button>
+        		<p id="current-time"></p> 
+        		<script src="teto-player.js"></script>
+					</div>
+				</div>
+	</div>
 			<div class="widget"> 
-				<div class="widgetBG"> </div>
+				<div class="widgetUI"> 
+					<div class="widgetBar">
+						<img src="icon.png" height="15px">
+						Program
+						<img src="close.png" height="15px" style="float:right;">
+						<img src="fullscreen.png" height="15px" style="float:right;">
+						<img src="minimize.png" height="15px" style="float:right;">
+					</div> 
+					<div class="widgetBarBG"></div>
+					<div class="widgetBG"></div>
+				</div>
 				<div class="widgetContent">
 					<p>Demo text! I am WIDGET!ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</p>
 				</div>
 			</div>
 	
-				
 			<script src="widget.js"></script>
 </body>
 
