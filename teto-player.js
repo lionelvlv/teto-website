@@ -8,9 +8,9 @@
 // volume slider
 
 // https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement
-var currTimetext = document.getElementById("trackTimetext");
-var endTimetext 
 
+var currTimetext = document.getElementById("trackTimetext");
+var endTimetext = document.getElementById("totalDuration");
 var stopButton = document.getElementById("stopButton");
 
 const tetodego = {
@@ -35,6 +35,10 @@ function stopmusic() {
 
 // https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/currentTime
 function UpdateCurrentTime() {
-    currTimetext.innerHTML = tetodego.audio.currentTime
+    currTimetext.innerHTML = tetodego.audio.currentTime.toFixed(2);
+    endTimetext.innerHTML = tetodego.audio.duration.toFixed(2);
 }
+
+// tetodego.audio.ontimeupdate = UpdateCurrentTime;
+window.setInterval(UpdateCurrentTime, 10);
 
