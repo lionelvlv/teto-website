@@ -4,6 +4,8 @@
 	height: 250px;
 	resize: both;
   overflow: hidden;
+	top: 100px;
+	left: 100px;
 }
 .widgetBar {
 	position: absolute;
@@ -95,5 +97,18 @@
 body {
   background-image: url(./assets/Bliss.jpg);
   background-size: cover;
+	height: 100vh;
+	width: 100vw;
+	margin: 0; 
 }
 
+#paint {
+	width: 500px;
+	height: 400px;
+	left: 400px;
+}
+#player {
+	width: 250px;
+	height: 250px;
+	top: 400px;
+}

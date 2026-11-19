@@ -1,3 +1,20 @@
+function closeWidget(e) {
+		var x = e.parentNode.parentNode.parentNode;
+		x.remove();
+}
+
+function maximizeWidget(e) {
+		var x = e.parentNode.parentNode.parentNode;
+		x.style.setProperty("left", 0 + "px");
+		x.style.setProperty("top", 0 + "px");
+		x.style.setProperty("width", document.body.clientWidth + "px");
+		x.style.setProperty("height", document.body.clientHeight + "px");
+}
+function minimizeWidget(e) {
+		var x = e.parentNode.parentNode.parentNode;
+		x.style.setProperty("width", 150 + "px");
+		x.style.setProperty("height", 150 + "px");
+}
 var relX = 0;
 var rely = 0;
 
@@ -28,7 +45,6 @@ function handleMouseMove(event) {
 document.onmousedown = mouseDown;
 document.onmouseup   = mouseUp;
 var mouseState = "up";
-
 function mouseMove(ev) {
 
     if(mouseState=='down') {
