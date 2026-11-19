@@ -1,0 +1,20 @@
+function clicked(event) {
+	var element = event.target;
+	element.classList.toggle("selected");
+}
+const widgets = document.getElementsByClassName("widget");
+for (const i of widgets) {
+	i.addEventListener("click", clicked);
+}
+document.onmousemove = handleMouseMove;
+function handleMouseMove(event) {
+	var x = event.pageX;
+	var y = event.pageY;
+	
+	const selected = document.getElementsByClassName("selected")[0];
+	if (selected) {	
+		const elementStyle = selected.style;
+		elementStyle.setProperty("left", x.toString() + "px");
+		elementStyle.setProperty("top", y.toString() + "px");
+	}
+}
