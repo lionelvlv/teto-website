@@ -10,11 +10,11 @@ function clicked(event) {
 }
 const widgets = document.getElementsByClassName("widgetUI");
 for (const i of widgets) {
-	i.addEventListener("click", clicked);
+	i.addEventListener("mousedown", clicked);
 }
 document.onmousemove = handleMouseMove;
+
 function handleMouseMove(event) {
-	console.log(relX);
 	var x = event.pageX;
 	var y = event.pageY;
 	
@@ -24,4 +24,28 @@ function handleMouseMove(event) {
 		elementStyle.setProperty("left", (x + relX).toString() + "px");
 		elementStyle.setProperty("top", (y + relY).toString() + "px");
 	}
+}
+document.onmousedown = mouseDown;
+document.onmouseup   = mouseUp;
+var mouseState = "up";
+
+function mouseMove(ev) {
+
+    if(mouseState=='down') {
+        console.log('mouse down state')
+    }
+
+    if (mouseState=='up')  {
+        console.log('mouse up state')
+    }
+}
+
+function mouseDown(ev) {
+    mouseState = "down";
+}
+
+function mouseUp(ev) {
+	const selected = document.getElementsByClassName("selected")[0];
+	if (selected) {selected.classList.toggle("selected");}
+	mouseState = "up";
 }

@@ -10,10 +10,10 @@
 				<div class="widgetUI"> 
 					<div class="widgetBar">
 						<img src="icon.png" height="15px">
-						Program 
-						<img src="close.png" height="15px" style="float:right;">
-						<img src="fullscreen.png" height="15px" style="float:right;">
-						<img src="minimize.png" height="15px" style="float:right;">
+						Player 
+						<button class="barButton close">
+						<button class="barButton fullscreen">
+						<button class="barButton minimize">
 					</div>
 					<div class="widgetBarBG"> </div> 
 					<div class="widgetBG"> </div>
@@ -31,18 +31,40 @@
 					<div class="widgetBar">
 						<img src="icon.png" height="15px">
 						Program
-						<img src="close.png" height="15px" style="float:right;">
-						<img src="fullscreen.png" height="15px" style="float:right;">
-						<img src="minimize.png" height="15px" style="float:right;">
+						<button class="barButton close">
+						<button class="barButton fullscreen">
+						<button class="barButton minimize">
 					</div> 
 					<div class="widgetBarBG"></div>
 					<div class="widgetBG"></div>
 				</div>
 				<div class="widgetContent">
-					<p>Demo text! I am WIDGET!ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</p>
+					<p>Demo text! I am WIDGET!</p>
 				</div>
 			</div>
-	
+			<div class="widget"> 
+				<div class="widgetUI"> 
+					<div class="widgetBar">
+						<img src="icon.png" height="15px">
+						Paint
+						<button class="barButton close">
+						<button class="barButton fullscreen">
+						<button class="barButton minimize">
+					</div> 
+					<div class="widgetBarBG"></div>
+					<div class="widgetBG"></div>
+				</div>
+				<div class="widgetContent">
+					<button style="background-color:red; height: 20px; width: 20px;" onclick="color='#ff0000'"> </button>
+					<button style="background-color:blue; height: 20px; width: 20px;"onclick="color='#0000ff'"> </button>
+					<button style="background-color:green; height: 20px; width: 20px;"onclick="color='#00ff00'"> </button>
+					<button style="background-color:white; height: 20px; width: 20px;"onclick="color='#ffffff'"> </button>
+					<button style="background-color:black; height: 20px; width: 20px;"onclick="color='#000000'"> </button>
+					<input type="range" min="1" max="500" value="3" class="slider" id="myRange">
+					<canvas id="myCanvas" width="1920" height="1080" style="background-color:white;"></canvas>
+				</div>
+				<script src="paint.js"></script>
+			</div>
 			<script src="widget.js"></script>
 </body>
 
