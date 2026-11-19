@@ -1,9 +1,11 @@
 .widget {
 	position: absolute;
-	width: 500px;
-	height: 500px;
+	width: 250px;
+	height: 250px;
 	resize: both;
-  overflow: auto;
+  overflow: hidden;
+	top: 100px;
+	left: 100px;
 }
 .widgetBar {
 	position: absolute;
@@ -17,7 +19,32 @@
 	text-shadow: 2px, 2px;
 }
 
-.widgetBar img {
+.barButton {
+	margin: 2px;
+	height: 15px;
+	width: 15px;
+	border:none;
+	float:right;
+}
+
+.barButton:hover {
+	filter: brightness(1.2);
+}
+.barButton:active {
+	filter: brightness(0.5);
+}
+
+.close {
+	background: url("close.png");
+	background-size: contain;
+}
+.fullscreen {
+	background: url("fullscreen.png");
+	background-size: contain;
+}
+.minimize {
+	background: url("minimize.png");
+	background-size: contain;
 }
 
 .widgetBarBG {
@@ -56,15 +83,35 @@
 
 .widgetContent {
 	position: absolute;
+	width: calc(100% - 44px + 22px);
+	height: calc(100% - 44px + 8px);
 	top: 22px;
 	left: 8px;
+  overflow: hidden;
 }
+
+#myCanvas {
+	margin-top: 5px;
+}
+
 body {
   background-image: url(./assets/Bliss.jpg);
   background-size: cover;
+	height: 100vh;
+	width: 100vw;
+	margin: 0; 
 }
 
 .timetext {
 	display: flex;
 	flex-direction: row;
+#paint {
+	width: 500px;
+	height: 400px;
+	left: 400px;
+}
+#player {
+	width: 250px;
+	height: 250px;
+	top: 400px;
 }
