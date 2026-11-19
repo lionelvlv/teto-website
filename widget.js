@@ -1,3 +1,4 @@
+
 function closeWidget(e) {
 		var x = e.parentNode.parentNode.parentNode;
 		x.remove();
