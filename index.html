@@ -6,13 +6,22 @@
 </head>
 
 <body>
-    <div class="player">
-        <button type="button" id="playbutton" onclick="togglemusic()">teto de go</button>
-        <p id="current-time"></p> 
-        <script src="teto-player.js"></script>
-    </div>
-			<img src="widget.png" class="widget" draggable="false"> 
-			<img src="widget.png" class="widget" draggable="false"> 
+			<div class="widget"> 
+				<img src="widget.png" class="widgetBG">
+				<div class="widgetContent player">
+        	<button type="button" id="playbutton" onclick="togglemusic()">teto de go</button>
+        	<p id="current-time"></p> 
+        	<script src="teto-player.js"></script>
+				</div>
+			</div>
+			<div class="widget"> 
+				<img src="widget.png" class="widgetBG">
+				<div class="widgetContent">
+					<p>Demo text! I am WIDGET!</p>
+				</div>
+			</div>
+	
+				
 			<script src="widget.js"></script>
 </body>
 

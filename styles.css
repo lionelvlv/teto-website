@@ -2,6 +2,12 @@
 	position: absolute;
 	user-select: none;
 }
+.widget img {
+	position:absolute
+}
+.widgetContent {
+	position: relative;
+}
 body {
   background-image: url(./assets/Bliss.jpg);
   background-size: cover;
