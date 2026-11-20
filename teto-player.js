@@ -61,7 +61,8 @@ function togglemusic() {
 function stopmusic() {
     currSong.audio.pause();
     currSong.audio.currentTime = 0;
-    currSong.audio.isPlaying = false;
+    currSong.isPlaying = false;
+    playbutton.innerHTML = "play";
     updateSeeker(0);
     // songText.innerHTML = nosong;
     // albumArt.style.visibility = 'hidden';
@@ -71,13 +72,11 @@ function nextSong() {
     stopmusic();
     songIndex = (songIndex + 1) % songs.length;
     currSong = songs[songIndex];
-    console.log("current song " + currSong.name);
     songText.innerHTML = currSong.name;
     albumArt.src = currSong.art;
     albumArt.style.visibility = 'visible';
     currSong.isPlaying = false;
     togglemusic();
-    console.log(currSong.isPlaying);
 }
 
 function prevSong() {
