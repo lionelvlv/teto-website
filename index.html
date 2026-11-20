@@ -6,7 +6,7 @@
 </head>
 
 <body>
-			<div class="widget" id="player">
+			<div class="widget" id="player" class="noselect">
 				<div class="widgetUI"> 
 					<div class="widgetBar">
 						<img src="icon.png" height="15px">
@@ -20,12 +20,19 @@
 				</div>
 				<div class="widgetContent">
 					<div>
-        		<button type="button" id="playbutton" onclick="togglemusic()">teto de go</button>
+						<img src="assets/art/album/TETODEOGOALBUMART.jpg" alt="album art" id="albumArt" style="visibility:hidden">
+						<p id="songText">no song playing :(</p>
+        		<button type="button" id="playbutton" onclick="togglemusic()">play</button>
+        		<button type="button" id="stopbutton" onclick="stopmusic()">stop</button>
+        		<button type="button" id="nextbutton" onclick="nextSong()">next</button>
+        		<button type="button" id="prevbutton" onclick="prevSong()">prev</button>
 						<div class="timetext">
 							<p id="trackTimetext">0:00</p> 
 							<p>/</p>
 							<p id="totalDuration">0:00</p>
 						</div>
+						<input id="seeker" type="range" value="0" class="slider">
+						<input id="volumeSlider" min="0" max="100" type="range" value="100" class="slider">
         		<script src="teto-player.js"></script>
 					</div>
 				</div>

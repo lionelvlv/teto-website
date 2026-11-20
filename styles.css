@@ -35,6 +35,18 @@
   overflow: hidden;
 	top: 100px;
 	left: 100px;
+/*
+Source - https://stackoverflow.com/a/4407335
+Posted by Blowsie, modified by community. See post 'Timeline' for change history
+Retrieved 2026-11-19, License - CC BY-SA 4.0
+*/
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 .widgetBar {
 	position: absolute;
@@ -143,6 +155,22 @@ body {
 }
 #player {
 	width: 250px;
-	height: 250px;
+	height: 350px;
 	top: 400px;
+}
+
+#player img {
+	/*
+Source - https://stackoverflow.com/a/12906840
+Posted by Jeff Wooden, modified by community. See post 'Timeline' for change history
+Retrieved 2026-11-19, License - CC BY-SA 4.0
+*/
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+		pointer-events: none;
+		-webkit-touch-callout: none;
 }
