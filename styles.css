@@ -1,11 +1,22 @@
+.task {
+	display:flex;
+	font-size: 10px;
+	background-color: grey;
+	padding: 2px;
+	width: 150px;
+}
+
 .taskbar {
-	position:absolute;
-	bottom:0;
 	height:28px;
-	width: 100%;
 	margin: 0;
 	padding: 0;
 	color: white;
+	display:flex;
+}
+
+.taskbar b,.task span {
+	margin-left: 5px;
+	margin-top: 5px;
 }
 
 .taskbar::before {
@@ -23,8 +34,15 @@
 	border-style: solid;
 }
 
-.taskbarlist li {
-	display:inline;
+.taskbarlist {
+	display:flex;
+	width: 100%;
+	height: 100%;
+}
+.taskbarlist .task {
+	margin-left: 5px;
+	margin-top: 2.5px;
+	margin-bottom: 2.5px;
 }
 
 .widget {
@@ -88,6 +106,24 @@ Retrieved 2026-11-19, License - CC BY-SA 4.0
 	background-size: contain;
 }
 
+.restore {
+	display:none;
+	background: url("restore.png");
+	background-size: contain;
+}
+.maximized .restore {
+	display:inline;
+}
+
+.maximized .fullscreen {
+	display:none;
+}
+.maximized {
+	resize: none;
+	z-index: 1;
+}
+
+
 .widgetBarBG {
 	width: calc(100% - 44px);
 	height: 0px;
@@ -131,10 +167,14 @@ Retrieved 2026-11-19, License - CC BY-SA 4.0
   overflow: hidden;
 }
 
+
 #myCanvas {
 	margin-top: 5px;
 }
-
+#desktop {
+	width: 100%;
+	height:100%;
+}
 body {
   background-image: url(./assets/Bliss.jpg);
   background-size: cover;
@@ -142,6 +182,8 @@ body {
 	width: 100vw;
 	margin: 0;
 	overflow: hidden; 
+	display: flex;
+	flex-direction: column;	
 }
 
 .timetext {
