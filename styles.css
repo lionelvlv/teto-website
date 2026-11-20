@@ -12,6 +12,7 @@
 	padding: 0;
 	color: white;
 	display:flex;
+	z-index: 0;	
 }
 
 .taskbar b,.task span {
@@ -53,6 +54,7 @@
   overflow: hidden;
 	top: 100px;
 	left: 100px;
+	z-index: 0;	
 /*
 Source - https://stackoverflow.com/a/4407335
 Posted by Blowsie, modified by community. See post 'Timeline' for change history
@@ -142,7 +144,7 @@ Retrieved 2026-11-19, License - CC BY-SA 4.0
 
 .widgetBG {
 	width: calc(100% - 44px);
-	height: calc(100% - 44px);
+	height: calc(100% - 42px);
 
 	border-top:0px;
 	border-left:22px;

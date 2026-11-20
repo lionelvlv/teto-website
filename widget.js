@@ -49,6 +49,8 @@ function clicked(event) {
 		return;
 	}
 	var element = event.currentTarget.parentNode.parentNode;
+
+	element.parentNode.appendChild(element);
 	var rect = element.getBoundingClientRect();
 	relX = rect.left - event.pageX;
 	relY = rect.top - event.pageY;
