@@ -99,7 +99,7 @@ function UpdateCurrentTime() {
     // convert to minutes and seconds
     var currentTimeMin = Math.floor(currSong.audio.currentTime / 60);
     var currentTimeSeconds = (currSong.audio.currentTime - currentTimeMin * 60);
-		console.log(currentTimeSeconds);
+
     var totalDurationMin = Math.floor(currSong.audio.duration / 60);
     var totalDurationSeconds = (currSong.audio.duration - totalDurationMin * 60);
 
