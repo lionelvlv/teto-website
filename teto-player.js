@@ -99,12 +99,11 @@ function UpdateCurrentTime() {
     // convert to minutes and seconds
     var currentTimeMin = Math.floor(currSong.audio.currentTime / 60);
     var currentTimeSeconds = (currSong.audio.currentTime - currentTimeMin * 60);
-
+		console.log(currentTimeSeconds);
     var totalDurationMin = Math.floor(currSong.audio.duration / 60);
     var totalDurationSeconds = (currSong.audio.duration - totalDurationMin * 60);
 
-    // TODO: what the fuck is this shit    
-    currTimetext.innerHTML = str_pad_left(currentTimeMin, '0', 2) + ':' + str_pad_left(currentTimeSeconds, '0', 2);
+    currTimetext.innerHTML = str_pad_left(currentTimeMin, '0', 2) + ':' + str_pad_left(Math.trunc(currentTimeSeconds), '0', 2);
     endTimetext.innerHTML = str_pad_left(totalDurationMin, '0', 2) + ':' + str_pad_left(totalDurationSeconds, '0', 2);
 
     updateSeeker(currSong.audio.currentTime);
