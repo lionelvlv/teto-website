@@ -67,15 +67,31 @@ Retrieved 2026-11-19, License - CC BY-SA 4.0
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 .widgetBar {
-	position: absolute;
-	margin-left: 2.5px;
-	margin-right: 2.5px;
-	margin-top: 2.5px;
-	width: calc(100% - 5px);
-	height: 15px;
+	display: flex;
+	width: 100%;
 	font-size: 12.5px;
 	color: white;
 	text-shadow: 2px, 2px;
+}
+.barButtons {
+	display:flex; 
+	flex-direction: row-reverse; 
+	padding-right: 5px;
+}
+.widgetBar::before {
+	position: absolute;
+	content: "";
+	width: calc(100% - 44px);
+	height: 0px;
+	border-bottom: 0px;
+	border-top: 22px;
+	border-left: 22px;
+	border-right: 22px;
+
+	z-index: -1;	
+	border-style: solid;
+  border-image: url("widgetbar.png") 22 round;
+	image-rendering: pixelated;
 }
 
 .barButton {
@@ -83,7 +99,6 @@ Retrieved 2026-11-19, License - CC BY-SA 4.0
 	height: 15px;
 	width: 15px;
 	border:none;
-	float:right;
 }
 
 .barButton:hover {
@@ -124,18 +139,6 @@ Retrieved 2026-11-19, License - CC BY-SA 4.0
 }
 
 
-.widgetBarBG {
-	width: calc(100% - 44px);
-	height: 0px;
-	border-bottom: 0px;
-	border-top: 22px;
-	border-left: 22px;
-	border-right: 22px;
-
-	border-style: solid;
-  border-image: url("widgetbar.png") 22 round;
-	image-rendering: pixelated;
-}
 
 .widgetBG {
 	width: calc(100% - 44px);

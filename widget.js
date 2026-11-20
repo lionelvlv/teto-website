@@ -22,7 +22,7 @@ function restore(widget, recalculate, e) {
 }
 
 function maximizeWidget(e) {
-		var x = e.parentNode.parentNode.parentNode;
+		var x = e.parentNode.parentNode.parentNode.parentNode;
 		x.previousSize = {sizeX: x.style.getPropertyValue("width"), sizeY: x.style.getPropertyValue("height"), 
 											xPos: x.style.getPropertyValue("left"), yPos: x.style.getPropertyValue("top")};
 		console.log(x.style.getPropertyValue("top"));
@@ -34,7 +34,7 @@ function maximizeWidget(e) {
 		x.classList.toggle("maximized");
 }
 function minimizeWidget(e) {
-		var x = e.parentNode.parentNode.parentNode;
+		var x = e.parentNode.parentNode.parentNode.parentNode;
 		x.style.setProperty("width", 150 + "px");
 		x.style.setProperty("height", 150 + "px");
 }
@@ -42,6 +42,9 @@ var relX = 0;
 var rely = 0;
 
 function clicked(event) {
+	if (event.target.classList.contains("barButton")) {
+		return;
+	}
 	var element = event.currentTarget.parentNode.parentNode;
 	var rect = element.getBoundingClientRect();
 	relX = rect.left - event.pageX;
