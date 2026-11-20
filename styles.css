@@ -226,6 +226,10 @@ body {
 		pointer-events: none;
 }
 
+#pear-box {
+	background-color: black;
+}
+
 #pear {
 	width: 50px;
 	position: absolute;
