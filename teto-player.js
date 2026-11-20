@@ -73,6 +73,7 @@ function nextSong() {
     currSong = songs[songIndex];
     songText.innerHTML = currSong.name;
     albumArt.src = currSong.art;
+    albumArt.style.visibility = 'visible';
 }
 
 function prevSong() {
@@ -84,6 +85,7 @@ function prevSong() {
     currSong = songs[songIndex];
     songText.innerHTML = currSong.name;
     albumArt.src = currSong.art;
+    albumArt.style.visibility = 'visible';
 }
 // Source - https://stackoverflow.com/a/3733257
 // Posted by Gumbo, modified by community. See post 'Timeline' for change history
