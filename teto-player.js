@@ -12,7 +12,7 @@ var songText = document.getElementById("songText");
 var currTimetext = document.getElementById("trackTimetext");
 var endTimetext = document.getElementById("totalDuration");
 
-var playButton = document.getElementById("playButton");
+var playbutton = document.getElementById("playbutton");
 var stopButton = document.getElementById("stopButton");
 var nextButton = document.getElementById("nextButton");
 var prevButton = document.getElementById("prevButton");
@@ -49,16 +49,16 @@ function togglemusic() {
         songText.innerHTML = currSong.name;
         albumArt.src = currSong.art;
         albumArt.style.visibility = 'visible';
+        seeker.max = currSong.audio.duration;
+        playbutton.innerHTML = "pause";
     } else {
         currSong.audio.pause();
+        playbutton.innerHTML = "play";
     }
     currSong.isPlaying = !currSong.isPlaying;
 }
 
 function stopmusic() {
-    if (!currSong.isPlaying) {
-        return;
-    }
     currSong.audio.pause();
     currSong.audio.currentTime = 0;
     currSong.audio.isPlaying = false;
@@ -71,9 +71,13 @@ function nextSong() {
     stopmusic();
     songIndex = (songIndex + 1) % songs.length;
     currSong = songs[songIndex];
+    console.log("current song " + currSong.name);
     songText.innerHTML = currSong.name;
     albumArt.src = currSong.art;
     albumArt.style.visibility = 'visible';
+    currSong.isPlaying = false;
+    togglemusic();
+    console.log(currSong.isPlaying);
 }
 
 function prevSong() {
@@ -83,9 +87,13 @@ function prevSong() {
         songIndex = songs.length - 1;
     }
     currSong = songs[songIndex];
+    console.log("current song " + currSong.name);
     songText.innerHTML = currSong.name;
     albumArt.src = currSong.art;
     albumArt.style.visibility = 'visible';
+    currSong.isPlaying = false;
+    togglemusic();
+    console.log(currSong.isPlaying);
 }
 // Source - https://stackoverflow.com/a/3733257
 // Posted by Gumbo, modified by community. See post 'Timeline' for change history
@@ -104,7 +112,7 @@ function UpdateCurrentTime() {
     var totalDurationSeconds = (currSong.audio.duration - totalDurationMin * 60);
 
     currTimetext.innerHTML = str_pad_left(currentTimeMin, '0', 2) + ':' + str_pad_left(Math.trunc(currentTimeSeconds), '0', 2);
-    endTimetext.innerHTML = str_pad_left(totalDurationMin, '0', 2) + ':' + str_pad_left(totalDurationSeconds, '0', 2);
+    endTimetext.innerHTML = str_pad_left(totalDurationMin, '0', 2) + ':' + str_pad_left(Math.trunc(totalDurationSeconds), '0', 2);
 
     updateSeeker(currSong.audio.currentTime);
 }
