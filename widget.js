@@ -1,6 +1,6 @@
 
 function closeWidget(e) {
-		var x = e.parentNode.parentNode.parentNode;
+		var x = e.parentNode.parentNode.parentNode.parentNode;
 		x.remove();
 }
 
@@ -37,6 +37,9 @@ function minimizeWidget(e) {
 		var x = e.parentNode.parentNode.parentNode.parentNode;
 		x.style.setProperty("width", 150 + "px");
 		x.style.setProperty("height", 150 + "px");
+		if (x.classList.contains("maximized")) {
+			x.classList.toggle("maximized");
+		}
 }
 var relX = 0;
 var rely = 0;
