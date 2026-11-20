@@ -1,11 +1,36 @@
+* {
+	
+  user-select: none;
+}
+
 .task {
 	display:flex;
 	font-size: 10px;
-	background-color: grey;
-	padding: 2px;
-	width: 150px;
+	width: 200px;
 }
 
+.task::before {
+	position: absolute;
+	width: calc(200px - 23px - 23px);
+	content: "";	
+	background-color: grey;
+  border-image: url("task.png") 23 round;
+	border-top:23px;
+	border-left:23px;
+	border-right:23px;
+	border-bottom:0px;
+	border-style: solid;
+	z-index: -1;
+	image-rendering: pixelated;
+}
+
+.task:hover {
+	filter: brightness(1.2);
+}
+
+.task:active {
+	filter: brightness(0.5);
+}
 .taskbar {
 	height:28px;
 	margin: 0;
@@ -41,7 +66,6 @@
 	height: 100%;
 }
 .taskbarlist .task {
-	margin-left: 5px;
 	margin-top: 2.5px;
 	margin-bottom: 2.5px;
 }
@@ -55,18 +79,6 @@
 	top: 100px;
 	left: 100px;
 	z-index: 0;	
-/*
-Source - https://stackoverflow.com/a/4407335
-Posted by Blowsie, modified by community. See post 'Timeline' for change history
-Retrieved 2026-11-19, License - CC BY-SA 4.0
-*/
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
 }
 .widgetBar {
 	display: flex;
@@ -137,9 +149,11 @@ Retrieved 2026-11-19, License - CC BY-SA 4.0
 }
 .maximized {
 	resize: none;
-	z-index: 1;
 }
 
+.minimized {
+	display:none;
+}
 
 
 .widgetBG {
@@ -207,17 +221,7 @@ body {
 }
 
 #player img {
-	/*
-Source - https://stackoverflow.com/a/12906840
-Posted by Jeff Wooden, modified by community. See post 'Timeline' for change history
-Retrieved 2026-11-19, License - CC BY-SA 4.0
-*/
     user-drag: none;
-    -webkit-user-drag: none;
     user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
 		pointer-events: none;
-		-webkit-touch-callout: none;
 }

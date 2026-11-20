@@ -47,7 +47,7 @@
 						<div class="widgetBar">
 							<div style="flex-grow:1;">
 								<img src="icon.png" height="15px">
-								Player 
+								Widget
 							</div>
 							<div class="barButtons">
 								<button class="barButton close"onclick="closeWidget(this);">
@@ -91,7 +91,7 @@
 						<div class="widgetBar">
 							<div style="flex-grow:1;">
 								<img src="icon.png" height="15px">
-								Player 
+								Paint 
 							</div>
 							<div class="barButtons">
 								<button class="barButton close"onclick="closeWidget(this);">
@@ -121,17 +121,21 @@
 					<b>Start</b>
 				</div>
 				<div class= "taskbarlist">
-					<div class = "task"> 
+					<div class = "task" onclick="taskbar(1);"> 
 						<img src="icon23x23.png"> <span>Paint</span>
 					</div>
-					<div class = "task"> 
+					<div class = "task" onclick="taskbar(2);"> 
+						<img src="icon23x23.png"> <span>DVD</span>
+					</div>
+					<div class = "task" onclick="taskbar(3);"> 
 						<img src="icon23x23.png"> <span>Player</span>
 					</div>
-					<div class = "task"> 
+					<div class = "task" onclick="taskbar(4);"> 
 						<img src="icon23x23.png"> <span>Widget</span>
 					</div>
 				</div>
 			</div>
+			<script src="taskbar.js"></script>
 			<script src="widget.js"></script>
 </body>
 </html>

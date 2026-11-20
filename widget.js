@@ -23,6 +23,7 @@ function restore(widget, recalculate, e) {
 
 function maximizeWidget(e) {
 		var x = e.parentNode.parentNode.parentNode.parentNode;
+		x.parentNode.appendChild(x);
 		x.previousSize = {sizeX: x.style.getPropertyValue("width"), sizeY: x.style.getPropertyValue("height"), 
 											xPos: x.style.getPropertyValue("left"), yPos: x.style.getPropertyValue("top")};
 		console.log(x.style.getPropertyValue("top"));
@@ -35,11 +36,7 @@ function maximizeWidget(e) {
 }
 function minimizeWidget(e) {
 		var x = e.parentNode.parentNode.parentNode.parentNode;
-		x.style.setProperty("width", 150 + "px");
-		x.style.setProperty("height", 150 + "px");
-		if (x.classList.contains("maximized")) {
-			x.classList.toggle("maximized");
-		}
+		x.classList.toggle("minimized");
 }
 var relX = 0;
 var rely = 0;
