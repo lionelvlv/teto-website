@@ -1,3 +1,32 @@
+.taskbar {
+	position:absolute;
+	bottom:0;
+	height:28px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	color: white;
+}
+
+.taskbar::before {
+	content: "";
+	position:absolute;
+	height: 0%;
+	width: 100%;
+  border-image: url("taskbar.png") 28 round;
+	border-top:0px;
+	border-left:0px;
+	border-right:0px;
+	border-bottom:28px;
+	z-index: -1;	
+	image-rendering: pixelated;
+	border-style: solid;
+}
+
+.taskbarlist li {
+	display:inline;
+}
+
 .widget {
 	position: absolute;
 	width: 250px;
@@ -99,7 +128,8 @@ body {
   background-size: cover;
 	height: 100vh;
 	width: 100vw;
-	margin: 0; 
+	margin: 0;
+	overflow: hidden; 
 }
 
 .timetext {
