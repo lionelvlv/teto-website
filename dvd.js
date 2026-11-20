@@ -1,6 +1,6 @@
 var widgetBox = document.getElementById("pear-box");
 var spawnButton = document.getElementById("spawn");
-
+var spawnSlider = document.getElementById("pear-slider");
 const pearSize = 50; 
 var width = widgetBox.offsetWidth;
 var height = widgetBox.offsetHeight;
@@ -18,6 +18,14 @@ function pearFactory() {
 	};
 }
 
+function spawnRange() {
+	var maxPears = spawnSlider.value; 
+	console.log(maxPears);
+	for (let i = 0; i < maxPears; i++) {
+		spawn();
+	} 
+}
+
 function spawn() {
 	const currPear = document.createElement("img");
 	var currPearObj = pearFactory();
@@ -25,16 +33,28 @@ function spawn() {
 	currPear.style.position = "absolute";
 	currPear.style.width = pearSize + "px";
 	currPearObj.pear = currPear; 
-	console.log(currPearObj);
 	currPear.style.setProperty("left", currPearObj.currX + "px");
 	currPear.style.setProperty("top", currPearObj.currY + "px");
 	pears.push(currPearObj);
 	widgetBox.appendChild(currPearObj.pear);
 }
 
+
+function deletePearRange() {
+	var maxPears = Math.min(spawnSlider.value, pears.length);
+	console.log(maxPears);
+	for (let i = 0; i < maxPears; i++) {
+		deletePear();
+	}
+}
+
+function deletePear() {
+	var p = pears.pop();
+	widgetBox.removeChild(p.pear);
+}
+
 function changeColor() {
 	for (var p of pears) {
-		console.log(p);
 		p.magicNumber = p.magicNumber + 1;
 		p.pear.style.filter = "hue-rotate(" + p.magicNumber + "deg)";
 	}
