@@ -105,13 +105,14 @@ body {
 .timetext {
 	display: flex;
 	flex-direction: row;
-#paint {
+}
+	#paint {
 	width: 500px;
 	height: 400px;
 	left: 400px;
 }
 #player {
 	width: 250px;
-	height: 250px;
+	height: 350px;
 	top: 400px;
 }
