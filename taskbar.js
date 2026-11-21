@@ -1,5 +1,4 @@
 function taskClicked(w) {
-	console.log(w);
 	if (w.classList.contains("minimized"))  {
 		w.classList.toggle("minimized");
 	}
@@ -10,7 +9,7 @@ function taskClicked(w) {
 var taskBar = document.getElementById("taskbarlist");
 var taskTemplate = document.getElementById("taskTemplate");
 
-for (let widget of widgets) {
+function addTask(widget) {
 	var newTask = taskTemplate.content.cloneNode(true);
 	var taskDiv = newTask.querySelector(".task");
 	var widgetName = taskDiv.querySelector(".widgetName");
@@ -20,13 +19,13 @@ for (let widget of widgets) {
 	taskBar.appendChild(taskDiv);		
 }
 
+
 function updateTaskBar() {
 	for (var widget of widgets) {
 		if (widget.classList.contains("minimized")) {
 				widget.task.classList.add("taskMinimized");	
 		}
 		else {
-			console.log("test");
 			widget.task.classList.remove("taskMinimized");	
 		}
 	}

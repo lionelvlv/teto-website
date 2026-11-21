@@ -25,52 +25,61 @@
 						</div>
 					</div>
 				</template>
-
-				<!-- Player -->
-				<div class="widgetContent" id="player">
-					<img src="assets/art/album/TETODEOGOALBUMART.jpg" alt="album art" id="albumArt" style="visibility:hidden">
-					<p id="songText">no song playing :(</p>
-	        <button type="button" id="playbutton" onclick="togglemusic()">play</button>
-	        <button type="button" id="stopbutton" onclick="stopmusic()">stop</button>
-	        <button type="button" id="nextbutton" onclick="nextSong()">next</button>
-	        <button type="button" id="prevbutton" onclick="prevSong()">prev</button>
-					<div class="timetext">
-						<p id="trackTimetext">0:00</p> 
-						<p>/</p>
-						<p id="totalDuration">0:00</p>
+				<template id = "player">
+					<!-- Player -->
+					<div class="widgetContent">
+						<img src="assets/art/album/TETODEOGOALBUMART.jpg" alt="album art" class="player_albumArt" style="visibility:hidden">
+						<p class="player_songText">no song playing :(</p>
+	    	    <button type="button" class="player_playbutton">play</button>
+	    	    <button type="button" class="player_stopbutton">stop</button>
+	    	    <button type="button" class="player_nextbutton">next</button>
+	    	    <button type="button" class="player_prevbutton">prev</button>
+						<div class="player_timetext">
+							<p class="player_trackTimetext">0:00</p> 
+							<p>/</p>
+							<p class="player_totalDuration">0:00</p>
+						</div>
+						<input type="range" value="0" class="slider player_seeker">
+						<input min="0" max="100" type="range" value="100" class="slider player_volumeSlider">
 					</div>
-					<input id="seeker" type="range" value="0" class="slider">
-					<input id="volumeSlider" min="0" max="100" type="range" value="100" class="slider">
-				</div>
-
+				</template>
 				<!-- Demo -->
-				<div class="widgetContent" id="demo">
-					<p>Demo text! I am WIDGET!</p>
-				</div>
+				<template id="demo">
+					<div class="widgetContent">
+						<p>Demo text! I am WIDGET!</p>
+					</div>
+				</template>
 				
 				<!-- Pear box -->
-				<div class="widgetContent" id="pear-box">
-					<button id="spawn" onclick="spawnRange()">pear</button>
-					<button id="delete" onclick="deletePearRange()">delete</button>
-					<input type="range" id="pear-slider" min="1" max="1000", value="1">
-				</div>
-					
-				<!-- Paint -->
-				<div class="widgetContent" id="paint">
-					<button style="background-color:red; height: 20px; width: 20px;" onclick="color='#ff0000'"> </button>
-					<button style="background-color:blue; height: 20px; width: 20px;"onclick="color='#0000ff'"> </button>
-					<button style="background-color:green; height: 20px; width: 20px;"onclick="color='#00ff00'"> </button>
-					<button style="background-color:white; height: 20px; width: 20px;"onclick="color='#ffffff'"> </button>
-					<button style="background-color:black; height: 20px; width: 20px;"onclick="color='#000000'"> </button>
-					<input type="range" min="1" max="100" value="3" class="slider" id="myRange">
-					<canvas id="myCanvas" width="1920" height="1080" style="background-color:white;"></canvas>
-				</div>
+				<template id="pear-box">
+					<div class="widgetContent">
+						<button id="spawn" onclick="spawnRange()">pear</button>
+						<button id="delete" onclick="deletePearRange()">delete</button>
+						<input type="range" id="pear-slider" min="1" max="1000", value="1">
+					</div>
+				</template>
 
 				<!-- Worldle -->
-				<div class="widgetContent" id="wordle">
-					<div id="wordlerows">
+				<template id="wordle">
+					<div class="widgetContent">
+						<div id="wordle_rows">
+						</div>
 					</div>
-				</div>
+				</template>
+	
+				<!-- Paint -->
+				<template id="paint">
+					<div class="widgetContent">
+						<button style="background-color:red; height: 20px; width: 20px;"  class="paint_red"> </button>
+						<button style="background-color:blue; height: 20px; width: 20px;" class="paint_blue"> </button>
+						<button style="background-color:green; height: 20px; width: 20px;"class="paint_green"> </button>
+						<button style="background-color:white; height: 20px; width: 20px;"class="paint_white"> </button>
+						<button style="background-color:black; height: 20px; width: 20px;"class="paint_black"> </button>
+						<input type="range" min="1" max="100" value="3" class="slider paint_range">
+						<canvas class="paint_canvas" width="1920" height="1080" style="background-color:white;"></canvas>
+					</div>
+				</template>
+
 
 			</div>
 			<div class = "taskbar">
@@ -87,13 +96,15 @@
 				<div id= "taskbarlist">
 				</div>
 			</div>
-	    <script src="teto-player.js"></script>
-			<script src="dvd.js"></script>
-			<script src="paint.js"></script>
-			<script src="wordle.js"></script>
-
 			<script src="widget.js"></script>
-			<script src="desktopMananger.js"></script>
 			<script src="taskbar.js"></script>
+			<script src="desktopMananger.js"></script>
+
+			<script src="paint.js"></script>
+	    <script src="teto-player.js"></script>
+			
+			<!-- <script src="dvd.js"></script> -->
+			<script src="wordle.js"></script>
+			
 </body>
 </html>
