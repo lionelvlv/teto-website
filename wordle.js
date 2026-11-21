@@ -4,7 +4,7 @@ widgetScripts['wordle'] = (widget) => {
 	const MAX_GUESSES = 6;
 	const ROW_LENGTH = 5;
 
-	var currGuess = 1;
+	var currGuess = 0;
 	var currGuessLen = 0;
 	var currRowIndex = 0;
 	var guess = { text: "", };
@@ -36,26 +36,43 @@ widgetScripts['wordle'] = (widget) => {
 		// @SOURCE: https://stackoverflow.com/questions/7060750/detect-the-enter-key-in-a-text-input-field
 		if ((isEnter(event)) && currGuessLen >= ROW_LENGTH && isValidWord(guess)) {
 			// process row here
+			letterMap = new Map();
+			for (let z = 0; z < word.length; z++) {
+				var currChar = word[z];
+				if (!letterMap.hasOwnProperty("currChar")) {
+					letterMap[currChar] = 1;
+				} else {
+					letterMap[currChar] += 1;
+				}
+			}
 			for (let i=0; i < ROW_LENGTH; i++) {
 				var currElem = getElem(i, currRowIndex);
 				if (guess.text[i] == word[i]) {
 					rightLetter(currElem); 
-				// TODO: CASE if letter in word
-				// if letter in word, and current guess letters do not exceed word
-				// CASE 1:
-				// app - paa (1 a yellow, 1 a red, 1 p yellow)
-				} else if (1 == 2) {
-					wrongBox(currElem);
-				}  else {
+					letterMap[guess.text[i]] -= 1;
+				} else {
 					wrongLetter(currElem);
-				} 
-			}
+				}
 
+			}
+			// process yellows
+			for (let i=0; i < ROW_LENGTH; i++) {
+				// console.log(currGuess, MAX_GUESSES);
+				if (!(guess.text[i] == word[i]) && (letterMap[guess.text[i]] > 0)) {
+					console.log(guess.text[i], word[i]);
+					console.log(guess.text);
+					console.log(word);
+					console.log(i);
+					wrongBox(currElem);
+					letterMap[guess.text[i]] -= 1;
+				}
+			}
 			if (guess.text == word) {
-				endGame();
+				addPromptButton();
 				return;
 
 			} else {
+				currGuess++;
 				nextRow();
 			}
 			// INVALID INPUT HANDLED HERE
@@ -64,8 +81,8 @@ widgetScripts['wordle'] = (widget) => {
 			setTimeout(() => {resetRow();}, 100);
 		} 
 
-		if (currGuess > MAX_GUESSES) {
-			endGame();
+		if (currGuess >= MAX_GUESSES) {
+			addPromptButton();
 			return;
 		}
 	});
@@ -87,12 +104,13 @@ widgetScripts['wordle'] = (widget) => {
 	}
 
 	function endGame() {
+		var goodbye = widget.querySelector(".wordle-button-container");
+		goodbye.remove();
 		resetRows();
 		currGuess = 0;
 		currRowIndex = 0;
 		currGuessLen=0;
 		guess.text="";
-		addPromptButton();
 	}
 
 	function addPromptButton() {
@@ -100,6 +118,7 @@ widgetScripts['wordle'] = (widget) => {
 		div.className = "wordle-button-container";
 		var button = document.createElement("div")
 		button.innerHTML = '<button type="button" class="wordle-button">play again?</button>';
+		button.addEventListener("click", () => endGame());
 		div.appendChild(button);
 		wordlerows.appendChild(div);
 	}
@@ -153,7 +172,6 @@ widgetScripts['wordle'] = (widget) => {
 		currRowIndex++;
 		guess.text="";
 		currGuessLen=0;
-		currGuess++;
 	}
 
 	function resetRow() {
