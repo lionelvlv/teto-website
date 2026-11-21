@@ -1,5 +1,4 @@
 function taskClicked(w) {
-	console.log(w);
 	if (w.classList.contains("minimized"))  {
 		w.classList.toggle("minimized");
 	}
@@ -26,7 +25,6 @@ function updateTaskBar() {
 				widget.task.classList.add("taskMinimized");	
 		}
 		else {
-			console.log("test");
 			widget.task.classList.remove("taskMinimized");	
 		}
 	}
