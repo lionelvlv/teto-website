@@ -16,6 +16,12 @@
 	width: 70px;
 	margin-top: 5px;
 }
+
+.icon.highlighted {
+	filter: hue-rotate(180deg);
+	border-style: dashed;
+	border-width: 2px;
+}
 .icon span {
 	text-align: center;
 	color: white;
