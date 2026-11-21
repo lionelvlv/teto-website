@@ -7,31 +7,87 @@ const ROW_LENGTH = 5;
 var currGuess = 1;
 var currGuessLen = 0;
 var currRowIndex = 0;
-guess = "";
+var guess = { text: "", };
 
-// handle input PER ROW while widget is FOCUSED
 document.addEventListener("keydown", function(event) {
 	// console.log("key " + event.key + " pressed!")
 	var key = event.key;
-	console.log(key + " is " + isValidInput(key));
-	if (isValidInput(key) && currGuessLen < ROW_LENGTH) {
-		var currElem = getElem(currGuessLen, currRow);
+	// console.log(key + " is " + isValidInput(key));
+	var colIndex = currGuessLen;
+	if (isBackspace(event)) {
+		console.log("backspace!");
+		console.log(guess.text);
+		if (guess.text.length > 0 && colIndex > 0) {
+			var currElem = getElem(colIndex - 1, currRowIndex);
+			console.log(currElem);
+			currElem.children[0].innerHTML = "";
+			currElem.correct = false;
+			currGuessLen -= 1;
+			// string pop here 
+			// @SOURCE: https://www.w3schools.com/js/js_string_methods.asp#mark_trim
+			guess.text.replace(/.$/, '');
+		}
+		return;
+	}
+
+	if (isValidInput(key)) {
+		var currElem = getElem(colIndex, currRowIndex);
+		currElem.children[0].innerHTML = key;
+		guess.text = guess.text + key;
+		currElem.correct = word[colIndex] == guess.text[colIndex];
 		currGuessLen++;
-		guess = guess + key;
-		currElem.text.innerHTML = key;
-	} else if (currGuessLen == ROW_LENGTH && isValidWord(guess)) {
-		processRow(currRowIndex, guess);
+	} 
+	// @SOURCE: https://stackoverflow.com/questions/7060750/detect-the-enter-key-in-a-text-input-field
+	if ((isEnter(event)) && currGuessLen >= ROW_LENGTH && isValidWord(guess)) {
+		// process row here
+		for (let i=0; i < ROW_LENGTH; i++) {
+			var currElem = getElem(i, currRowIndex);
+			if (currElem.correct) {
+				rightLetter(currElem); 
+		  // TODO: CASE if letter in word
+			// if letter in word, and current guess letters do not exceed word
+		  // CASE 1:
+		  // app - paa (1 a yellow, 1 a red, 1 p yellow)
+			} else if (1 == 2) {
+				wrongBox(currElem);
+			}  else {
+				wrongLetter(currElem);
+			} 
+		}
+
+		if (guess.text == word) {
+			endGame();
+			return;
+
+		} else {
+			nextRow();
+		}
+		// INVALID INPUT HANDLED HERE
+	} else if (currGuessLen >= (ROW_LENGTH) && isEnter(event)) {
+		// delay due to alert
+		setTimeout(() => {resetRow();}, 100);
+	} 
+
+	if (currGuess > MAX_GUESSES) {
+		endGame();
+		return;
 	}
 });
 
-function getElem(colIndex, rowIndex) {
-	var row = getWordlerow(colIndex);
-
-
+function isEnter(event) {
+	return (event.key === 'Enter' || event.keyCode === 13);
 }
 
-function getWordlerow(colIndex) {
-	return wordlerows.children[colIndex];
+function isBackspace(event) {
+	return (event.keyCode == 8 || event.keyCode == 46);
+}
+function getElem(colIndex, rowIndex) {
+	var row = getWordlerow(rowIndex);
+	return row.children[colIndex];
+}
+
+function getWordlerow(rowIndex) {
+	return wordlerows.children[rowIndex];
 }
 
 function buildBoard() {
@@ -63,52 +119,31 @@ function buildBoard() {
 
 buildBoard();
 
-function getWordleRow(index) {
-	// TODO how to get row?
-}
-
 // need to reference 5-word dictionary, if not valid word, do not process input
 function isValidWord(word) {
 	// TODO how to valid word?
 	return true;
 }
 
-function isValidInput(str) {
-	// @SOURCE: https://stackoverflow.com/questions/9862761/how-to-check-if-character-is-a-letter-in-javascript
-	//
-	return str.length === 1 && str.match(/[a-z]/i);
+function nextRow() {
+	currRowIndex++;
+	guess.text="";
+	currGuessLen=0;
+	currGuess++;
 }
 
-// assume valid guess
-function processRow(index, guess) {
-	var correct = 0;
-	var currRow = getWordleRow(index);
-	for (let i=0; i++; i < ROW_LENGTH) {
-		currDiv = currRow[i];
-		currGuessLetter = guess[i];
-		correctLetter = word[i];
-
-		if (currGuessLetter == correctLetter) {
-			rightLetter(currDiv);
-			correct++;
-		// TODO handle the case where there's multiple letters but only 1 is valid
-		} else if (word.includes(currGuessLetter)) {
-			wrongBox(currDiv);
-		} else {
-			wrongLetter(currDiv);
-		}
+function resetRow() {
+	alert("not a valid word!");
+	guess.text="";
+	currGuessLen=0;
+	for (let i = 0; i < ROW_LENGTH; i++) {
+		var elem = getElem(i, currRowIndex); 
+		elem.children[0].innerHTML = "";
 	}
-
-	if (correct == 5) {
-		winGame();
-	}
-
-	currGuess++;
-
-	if (currGuess == MAX_GUESSES) {
-		fail();
-	}
-	
+}
+function isValidInput(str) {
+	// @SOURCE: https://stackoverflow.com/questions/9862761/how-to-check-if-character-is-a-letter-in-javascript
+	return str.length === 1 && str.match(/[a-z]/i);
 }
 
 // right letter in right spot? green

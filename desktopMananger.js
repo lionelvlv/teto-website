@@ -3,6 +3,7 @@ var widgetScripts = [];
 var template = document.getElementById("widgetTemplate");
 var desktop = document.getElementById("desktop");
 function makeWindow(id, name, w, h, x, y) {
+	// console.log(contents);
 	var contents = document.getElementById(id).content.cloneNode(true);
 	var widgetTemplate = template.content.cloneNode(true);
 	var newWidget = widgetTemplate.querySelector(".widget");
