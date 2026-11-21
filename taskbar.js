@@ -9,7 +9,7 @@ function taskClicked(w) {
 var taskBar = document.getElementById("taskbarlist");
 var taskTemplate = document.getElementById("taskTemplate");
 
-for (let widget of widgets) {
+function addTask(widget) {
 	var newTask = taskTemplate.content.cloneNode(true);
 	var taskDiv = newTask.querySelector(".task");
 	var widgetName = taskDiv.querySelector(".widgetName");
@@ -18,6 +18,7 @@ for (let widget of widgets) {
 	taskDiv.addEventListener("click", () => taskClicked(widget));
 	taskBar.appendChild(taskDiv);		
 }
+
 
 function updateTaskBar() {
 	for (var widget of widgets) {

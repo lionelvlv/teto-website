@@ -211,7 +211,7 @@ body {
 	flex-direction: column;	
 }
 
-.timetext {
+.player_timetext {
 	display: flex;
 	flex-direction: row;
 }
