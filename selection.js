@@ -1,6 +1,6 @@
 var currentlySelected = document.body;
 
-document.body.addEventListener("click", (event) => {
+document.body.addEventListener("mousedown", (event) => {
 	if (!currentlySelected) {
 		currentlySelected = document.body;
 	}
