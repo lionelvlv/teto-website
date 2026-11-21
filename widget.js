@@ -1,5 +1,6 @@
 function closeWidget(e) {
 		var x = e.parentNode.parentNode.parentNode.parentNode;
+		x.task.remove();
 		x.remove();
 		updateTaskBar();
 }
