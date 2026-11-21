@@ -27,5 +27,3 @@ function makeWindow(id, name, w, h, x, y) {
 	updateTaskBar();
 }
 
-makeWindow("wordle", "Wordle", 210, 350, 0, 0);
-makeWindow("demo", "demo",     250, 250, 210, 0);

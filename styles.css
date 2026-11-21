@@ -1,8 +1,26 @@
 * {
-	
   user-select: none;
 }
+.iconContainer {
+	display:flex;
+	flex-direction: column;
+}
 
+.iconContainer img {
+	width: 70px;
+}
+
+.icon {
+	display:flex;
+	flex-direction: column;
+	width: 70px;
+	margin-top: 5px;
+}
+.icon span {
+	text-align: center;
+	color: white;
+	filter: drop-shadow(1px 1px 0px #444444);
+}
 .task {
 	position: relative;
 	display:flex;
