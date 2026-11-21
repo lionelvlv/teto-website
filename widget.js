@@ -1,4 +1,18 @@
+var template = document.getElementById("widgetTemplate");
+var desktop = document.getElementById("desktop");
 
+const widgetTemplates = document.getElementsByClassName("widgetContent");
+var widgetList = [];
+for (var w of widgetTemplates) {
+	widgetList.push(w);
+}
+
+for (var w of widgetList) {
+	var newWidget = template.content.cloneNode(true);
+	newWidget.querySelector(".widget").appendChild(w);
+	desktop.appendChild(newWidget);
+}
+console.log(widgetList);
 function closeWidget(e) {
 		var x = e.parentNode.parentNode.parentNode.parentNode;
 		x.remove();

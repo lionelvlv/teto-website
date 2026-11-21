@@ -7,114 +7,67 @@
 
 <body>
 			<div id ="desktop">
-				<div class="widget" id="player" style="left: 80px; top: 300px; width: 250px; height: 350px;">
-					<div class="widgetUI"> 
-						<div class="widgetBar">
-							<div style="flex-grow:1;">
-								<img src="icon.png" height="15px">
-								Player 
-							</div>
-							<div class="barButtons">
-								<button class="barButton close"onclick="closeWidget(this);">
-								<button class="barButton fullscreen"onclick="maximizeWidget(this);">
-								<button class="barButton restore" onclick="restore(this.parentNode.parentNode.parentNode.parentNode, false);">
-								<button class="barButton minimize" onclick="minimizeWidget(this);">
-							</div>
-						</div>
-						<div class="widgetBG"> </div>
-					</div>
-					<div class="widgetContent">
-						<div>
-							<img src="assets/art/album/TETODEOGOALBUMART.jpg" alt="album art" id="albumArt" style="visibility:hidden">
-							<p id="songText">no song playing :(</p>
-	        		<button type="button" id="playbutton" onclick="togglemusic()">play</button>
-	        		<button type="button" id="stopbutton" onclick="stopmusic()">stop</button>
-	        		<button type="button" id="nextbutton" onclick="nextSong()">next</button>
-	        		<button type="button" id="prevbutton" onclick="prevSong()">prev</button>
-							<div class="timetext">
-								<p id="trackTimetext">0:00</p> 
-								<p>/</p>
-								<p id="totalDuration">0:00</p>
-							</div>
-							<input id="seeker" type="range" value="0" class="slider">
-							<input id="volumeSlider" min="0" max="100" type="range" value="100" class="slider">
-	        		<script src="teto-player.js"></script>
+				<template id="widgetTemplate">
+					<div class="widget" style="left: 80px; top: 20px; width: 250px; height: 250px;"> 
+						<div class="widgetUI"> 
+							<div class="widgetBar">
+								<div style="flex-grow:1;">
+									<img src="icon.png" height="15px">
+									Widget
+								</div>
+								<div class="barButtons">
+									<button class="barButton close"onclick="closeWidget(this);">
+									<button class="barButton fullscreen"onclick="maximizeWidget(this);">
+									<button class="barButton restore" onclick="restore(this.parentNode.parentNode.parentNode.parentNode, false);">
+									<button class="barButton minimize" onclick="minimizeWidget(this);">
+								</div>
+							</div> 
+							<div class="widgetBG"></div>
 						</div>
 					</div>
-		</div>
-				<div class="widget" id="placeholder" style="left: 80px; top: 20px; width: 250px; height: 250px;"> 
-					<div class="widgetUI"> 
-						<div class="widgetBar">
-							<div style="flex-grow:1;">
-								<img src="icon.png" height="15px">
-								Widget
-							</div>
-							<div class="barButtons">
-								<button class="barButton close"onclick="closeWidget(this);">
-								<button class="barButton fullscreen"onclick="maximizeWidget(this);">
-								<button class="barButton restore" onclick="restore(this.parentNode.parentNode.parentNode.parentNode, false);">
-								<button class="barButton minimize" onclick="minimizeWidget(this);">
-							</div>
-						</div> 
-						<div class="widgetBG"></div>
+				</template>
+
+				<!-- Player -->
+				<div class="widgetContent">
+					<img src="assets/art/album/TETODEOGOALBUMART.jpg" alt="album art" id="albumArt" style="visibility:hidden">
+					<p id="songText">no song playing :(</p>
+	        <button type="button" id="playbutton" onclick="togglemusic()">play</button>
+	        <button type="button" id="stopbutton" onclick="stopmusic()">stop</button>
+	        <button type="button" id="nextbutton" onclick="nextSong()">next</button>
+	        <button type="button" id="prevbutton" onclick="prevSong()">prev</button>
+					<div class="timetext">
+						<p id="trackTimetext">0:00</p> 
+						<p>/</p>
+						<p id="totalDuration">0:00</p>
 					</div>
-					<div class="widgetContent">
-						<p>Demo text! I am WIDGET!</p>
-					</div>
+					<input id="seeker" type="range" value="0" class="slider">
+					<input id="volumeSlider" min="0" max="100" type="range" value="100" class="slider">
 				</div>
 
-				<div class="widget" id="DVD" style="left: 1400px; top: 20px; width: 250px; height: 250px;">
-					<div class="widgetUI">
-						<div class="widgetBar">
-							<div style="flex-grow:1;">
-								<img src="icon.png" height="15px">
-								DVD 
-							</div>
-							<div class="barButtons">
-								<button class="barButton close"onclick="closeWidget(this);">
-								<button class="barButton fullscreen"onclick="maximizeWidget(this);">
-								<button class="barButton restore" onclick="restore(this.parentNode.parentNode.parentNode.parentNode, false);">
-								<button class="barButton minimize" onclick="minimizeWidget(this);">
-							</div>
-						</div>
-						<div class="widgetBarBG"></div>
-						<div class="widgetBG"></div>
-					</div>
-					<div class="widgetContent" id="pear-box">
-						<button id="spawn" onclick="spawnRange()">pear</button>
-						<button id="delete" onclick="deletePearRange()">delete</button>
-						<input type="range" id="pear-slider" min="1" max="1000", value="1">
-						<script src="dvd.js"></script>
-					</div>
+				<!-- Demo -->
+				<div class="widgetContent">
+					<p>Demo text! I am WIDGET!</p>
+				</div>
+				
+				<!-- Pear box -->
+				<div class="widgetContent" id="pear-box">
+					<button id="spawn" onclick="spawnRange()">pear</button>
+					<button id="delete" onclick="deletePearRange()">delete</button>
+					<input type="range" id="pear-slider" min="1" max="1000", value="1">
+				</div>
+					
+				<!-- Paint -->
+				<div class="widgetContent">
+					<button style="background-color:red; height: 20px; width: 20px;" onclick="color='#ff0000'"> </button>
+					<button style="background-color:blue; height: 20px; width: 20px;"onclick="color='#0000ff'"> </button>
+					<button style="background-color:green; height: 20px; width: 20px;"onclick="color='#00ff00'"> </button>
+					<button style="background-color:white; height: 20px; width: 20px;"onclick="color='#ffffff'"> </button>
+					<button style="background-color:black; height: 20px; width: 20px;"onclick="color='#000000'"> </button>
+					<input type="range" min="1" max="100" value="3" class="slider" id="myRange">
+					<canvas id="myCanvas" width="1920" height="1080" style="background-color:white;"></canvas>
 				</div>
 
-				<div class="widget" id="paint" style="left: 380px; top: 20px; width: 950px; height: 620px;"> 
-					<div class="widgetUI"> 
-						<div class="widgetBar">
-							<div style="flex-grow:1;">
-								<img src="icon.png" height="15px">
-								Paint 
-							</div>
-							<div class="barButtons">
-								<button class="barButton close"onclick="closeWidget(this);">
-								<button class="barButton fullscreen"onclick="maximizeWidget(this);">
-								<button class="barButton restore" onclick="restore(this.parentNode.parentNode.parentNode.parentNode, false);">
-								<button class="barButton minimize" onclick="minimizeWidget(this);">
-							</div>
-						</div> 
-						<div class="widgetBG"></div>
-					</div>
-					<div class="widgetContent">
-						<button style="background-color:red; height: 20px; width: 20px;" onclick="color='#ff0000'"> </button>
-						<button style="background-color:blue; height: 20px; width: 20px;"onclick="color='#0000ff'"> </button>
-						<button style="background-color:green; height: 20px; width: 20px;"onclick="color='#00ff00'"> </button>
-						<button style="background-color:white; height: 20px; width: 20px;"onclick="color='#ffffff'"> </button>
-						<button style="background-color:black; height: 20px; width: 20px;"onclick="color='#000000'"> </button>
-						<input type="range" min="1" max="100" value="3" class="slider" id="myRange">
-						<canvas id="myCanvas" width="1920" height="1080" style="background-color:white;"></canvas>
-					</div>
-					<script src="paint.js"></script>
-				</div>
+
 			</div>
 			<div class = "taskbar">
 				<img src="startbutton.png">
@@ -137,6 +90,9 @@
 					</div>
 				</div>
 			</div>
+	    <script src="teto-player.js"></script>
+			<script src="dvd.js"></script>
+			<script src="paint.js"></script>
 			<script src="taskbar.js"></script>
 			<script src="widget.js"></script>
 </body>
