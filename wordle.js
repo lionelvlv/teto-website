@@ -11,6 +11,9 @@ widgetScripts['wordle'] = (widget) => {
 
 	document.addEventListener("keydown", function(event) {
 		// console.log("key " + event.key + " pressed!")
+		if (!widget.classList.contains("highlighted")) {
+			return;
+		}
 		var key = event.key;
 		// console.log(key + " is " + isValidInput(key));
 		var colIndex = currGuessLen;
@@ -57,6 +60,7 @@ widgetScripts['wordle'] = (widget) => {
 			}
 			// process yellows
 			for (let i=0; i < ROW_LENGTH; i++) {
+				var currElem = getElem(i, currRowIndex);
 				if (!(guess.text[i] == word[i]) && (letterMap[guess.text[i]] > 0)) {
 					wrongBox(currElem);
 					letterMap[guess.text[i]] -= 1;
@@ -109,6 +113,8 @@ widgetScripts['wordle'] = (widget) => {
 	}
 
 	function addPromptButton() {
+		var tetosound = new Audio("./assets/sounds/teto.mp3");
+		tetosound.play();
 		var div = document.createElement("div");
 		div.className = "wordle-button-container";
 		var button = document.createElement("div")
@@ -163,6 +169,10 @@ widgetScripts['wordle'] = (widget) => {
 		return true;
 	}
 
+	function pullWord() {
+
+	}
+
 	function nextRow() {
 		currRowIndex++;
 		guess.text="";
@@ -202,7 +212,6 @@ widgetScripts['wordle'] = (widget) => {
 	}
 }
 
-makeWindow("wordle", "Wordle", 210, 350, 0, 0);
 
 
 
