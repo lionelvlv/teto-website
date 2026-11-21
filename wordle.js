@@ -1,3 +1,16 @@
+
+// 		.then(response => {
+// 				if (!response.ok) {
+// 						throw new Error(`HTTP error! Status: ${response.status}`);
+// 				}
+// 				return response.json();  
+// 		})
+// 		.then(data => console.log(data))  
+// 		.catch(error => console.error('Failed to fetch data:', error)); 
+// }
+// var validWords = fetchJSONData();  
+// console.log(validWords);
+
 widgetScripts['wordle'] = (widget) => { 
 	var wordlerows = widget.querySelector(".wordle-rows"); 
 	var word = "apple"
@@ -81,6 +94,7 @@ widgetScripts['wordle'] = (widget) => {
 		} 
 
 		if (currGuess >= MAX_GUESSES) {
+			alert("the word was " + word);
 			addPromptButton();
 			return;
 		}
@@ -110,6 +124,7 @@ widgetScripts['wordle'] = (widget) => {
 		currRowIndex = 0;
 		currGuessLen=0;
 		guess.text="";
+		word = pullWord();
 	}
 
 	function addPromptButton() {
@@ -136,6 +151,7 @@ widgetScripts['wordle'] = (widget) => {
 	}
 
 	function buildBoard() {
+		word = pullWord();
 		for (let i = 0; i < MAX_GUESSES; i++) {
 			var row = document.createElement("div");
 			row.className = "wordle-row-" + i;
@@ -165,12 +181,13 @@ widgetScripts['wordle'] = (widget) => {
 
 	// need to reference 5-word dictionary, if not valid word, do not process input
 	function isValidWord(word) {
-		// TODO how to valid word?
-		return true;
+		return validWords.includes(word.text);
 	}
 
 	function pullWord() {
-
+		var arrSize = wordBank.length;
+		var magicNumber = Math.floor(Math.random() * arrSize);
+		return wordBank[arrSize % magicNumber];
 	}
 
 	function nextRow() {
@@ -180,7 +197,6 @@ widgetScripts['wordle'] = (widget) => {
 	}
 
 	function resetRow() {
-		alert("not a valid word!");
 		guess.text="";
 		currGuessLen=0;
 		for (let i = 0; i < ROW_LENGTH; i++) {

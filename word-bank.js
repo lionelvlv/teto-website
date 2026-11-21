@@ -1,4 +1,4 @@
-[
+var wordBank = [
 "aback",
 "abase",
 "abate",
@@ -2314,4 +2314,4 @@
 "zebra",
 "zesty",
 "zonal"
-]
+];

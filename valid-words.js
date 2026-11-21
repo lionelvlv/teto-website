@@ -1,4 +1,4 @@
-[
+var validWords = [
 "aahed",
 "aalii",
 "aargh",
@@ -12971,4 +12971,4 @@
 "zygon",
 "zymes",
 "zymic"
-]
+];
