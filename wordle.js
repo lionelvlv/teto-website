@@ -57,12 +57,7 @@ widgetScripts['wordle'] = (widget) => {
 			}
 			// process yellows
 			for (let i=0; i < ROW_LENGTH; i++) {
-				// console.log(currGuess, MAX_GUESSES);
 				if (!(guess.text[i] == word[i]) && (letterMap[guess.text[i]] > 0)) {
-					console.log(guess.text[i], word[i]);
-					console.log(guess.text);
-					console.log(word);
-					console.log(i);
 					wrongBox(currElem);
 					letterMap[guess.text[i]] -= 1;
 				}
