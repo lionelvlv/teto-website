@@ -136,5 +136,3 @@ widgetScripts["player"] = (widget) => {
 	    currSong.audio.volume = this.value / 100;
 	}
 }
-makeWindow("player", "player", 250, 300, 1310, 0);
-makeWindow("player", "player", 250, 300, 1310, 0);

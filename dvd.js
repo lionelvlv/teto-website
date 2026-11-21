@@ -97,5 +97,3 @@ widgetScripts["pear-box"] = (widget) => {
 	  return Math.random() * (max - min) + min;
 	}
 }
-makeWindow("pear-box", "Pear", 250, 250, 1060, 0);
-makeWindow("pear-box", "Pear", 250, 250, 1060, 0);

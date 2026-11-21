@@ -39,4 +39,3 @@ widgetScripts["paint"] = (widget) => {
 					mousePos = mousePosNew;
 	}
 }
-makeWindow("paint", "Paint", 600, 250, 460, 0);
