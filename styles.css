@@ -4,14 +4,18 @@
 }
 
 .task {
+	position: relative;
 	display:flex;
 	font-size: 10px;
-	width: 200px;
+	margin-top: 2.5px;
+	margin-bottom: 2.5px;
+	flex-grow: 1;
 }
 
 .task::before {
 	position: absolute;
-	width: calc(200px - 23px - 23px);
+	width: calc(100% - 44px);
+	display: block;
 	content: "";	
 	background-color: grey;
   border-image: url("task.png") 23 round;
@@ -33,6 +37,7 @@
 }
 .taskbar {
 	height:28px;
+	width: 80%;
 	margin: 0;
 	padding: 0;
 	color: white;
@@ -65,9 +70,8 @@
 	width: 100%;
 	height: 100%;
 }
-#taskbarlist .task {
-	margin-top: 2.5px;
-	margin-bottom: 2.5px;
+.taskMinimized {
+	filter: brightness(0.7);
 }
 
 .widget {
@@ -210,16 +214,6 @@ body {
 .timetext {
 	display: flex;
 	flex-direction: row;
-}
-#paint {
-	width: 500px;
-	height: 400px;
-	left: 400px;
-}
-#player {
-	width: 250px;
-	height: 350px;
-	top: 400px;
 }
 
 #player img {

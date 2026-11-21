@@ -13,7 +13,7 @@
 							<div class="widgetBar">
 								<div style="flex-grow:1;">
 									<img src="icon.png" height="15px">
-									Widget
+									<span class ="widgetName">Widget</span>
 								</div>
 								<div class="barButtons">
 									<button class="barButton close"onclick="closeWidget(this);">
@@ -27,7 +27,7 @@
 				</template>
 
 				<!-- Player -->
-				<div class="widgetContent">
+				<div class="widgetContent" id="player">
 					<img src="assets/art/album/TETODEOGOALBUMART.jpg" alt="album art" id="albumArt" style="visibility:hidden">
 					<p id="songText">no song playing :(</p>
 	        <button type="button" id="playbutton" onclick="togglemusic()">play</button>
@@ -44,7 +44,7 @@
 				</div>
 
 				<!-- Demo -->
-				<div class="widgetContent">
+				<div class="widgetContent" id="demo">
 					<p>Demo text! I am WIDGET!</p>
 				</div>
 				
@@ -56,7 +56,7 @@
 				</div>
 					
 				<!-- Paint -->
-				<div class="widgetContent">
+				<div class="widgetContent" id="paint">
 					<button style="background-color:red; height: 20px; width: 20px;" onclick="color='#ff0000'"> </button>
 					<button style="background-color:blue; height: 20px; width: 20px;"onclick="color='#0000ff'"> </button>
 					<button style="background-color:green; height: 20px; width: 20px;"onclick="color='#00ff00'"> </button>
@@ -65,17 +65,19 @@
 					<input type="range" min="1" max="100" value="3" class="slider" id="myRange">
 					<canvas id="myCanvas" width="1920" height="1080" style="background-color:white;"></canvas>
 				</div>
-					<div class="widgetContent">
-						<p>wordle</p>
-						<div id="wordlerows">
-						</div>
+
+				<!-- Worldle -->
+				<div class="widgetContent" id="wordle">
+					<p>wordle</p>
+					<div id="wordlerows">
 					</div>
+				</div>
 
 			</div>
 			<div class = "taskbar">
 				<template id="taskTemplate">
 					<div class = "task"> 
-						<img src="icon23x23.png"> <span>Task</span>
+						<img src="icon23x23.png"> <span class="widgetName">Task</span>
 					</div>
 				</template>
 				<img src="startbutton.png">
@@ -89,8 +91,10 @@
 	    <script src="teto-player.js"></script>
 			<script src="dvd.js"></script>
 			<script src="paint.js"></script>
-			<script src="widget.js"></script>
-			<script src="taskbar.js"></script>
 			<script src="wordle.js"></script>
+
+			<script src="widget.js"></script>
+			<script src="desktopMananger.js"></script>
+			<script src="taskbar.js"></script>
 </body>
 </html>

@@ -1,20 +1,3 @@
-var template = document.getElementById("widgetTemplate");
-var desktop = document.getElementById("desktop");
-
-const widgetTemplates = document.getElementsByClassName("widgetContent");
-var widgetContents = [];
-for (var w of widgetTemplates) {
-	widgetContents.push(w);
-}
-var widgets = [];
-for (var w of widgetContents) {
-	var widgetTemplate = template.content.cloneNode(true);
-	var newWidget = widgetTemplate.querySelector(".widget");
-	newWidget.appendChild(w);
-	widgets.push(newWidget);
-	desktop.appendChild(newWidget);
-}
-console.log(widgets);
 function closeWidget(e) {
 		var x = e.parentNode.parentNode.parentNode.parentNode;
 		x.remove();
@@ -75,10 +58,6 @@ function clicked(event) {
 	if (element.classList.contains("maximized")) {
 		restore(element, true, event);
 	}
-}
-const widgetbars = document.getElementsByClassName("widgetBar");
-for (const i of widgetbars) {
-	i.addEventListener("mousedown", clicked);
 }
 document.onmousemove = handleMouseMove;
 function resize(event) {
