@@ -60,12 +60,12 @@
 	border-style: solid;
 }
 
-.taskbarlist {
+#taskbarlist {
 	display:flex;
 	width: 100%;
 	height: 100%;
 }
-.taskbarlist .task {
+#taskbarlist .task {
 	margin-top: 2.5px;
 	margin-bottom: 2.5px;
 }
@@ -182,7 +182,7 @@
 .widgetContent {
 	position: absolute;
 	width: calc(100% - 10px);
-	height: calc(100% - 27px);
+	height: calc(100% - 26px);
 	top: 22px;
 	left: 5px;
   overflow: hidden;

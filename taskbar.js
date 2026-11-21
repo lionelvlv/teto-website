@@ -1,19 +1,23 @@
-function taskbar(n) {
-	var widget;
-	if (n == 1) {
-		widget = document.getElementById("paint");
+function taskClicked(w) {
+	console.log(w);
+	if (w.classList.contains("minimized"))  {
+		w.classList.toggle("minimized");
 	}
-	if (n == 2) {
-		widget = document.getElementById("DVD");
+	w.parentNode.appendChild(w);
+}
+
+var taskBar = document.getElementById("taskbarlist");
+var taskTemplate = document.getElementById("taskTemplate");
+
+for (let widget of widgets) {
+	var newTask = taskTemplate.content.cloneNode(true);
+	var taskDiv = newTask.querySelector(".task");
+	taskDiv.addEventListener("click", () => taskClicked(widget));
+	taskBar.appendChild(taskDiv);		
+}
+
+function updateTaskBar() {
+	for (var widget of widgets) {
+		console.log(widget.classList.contains("minimized"));
 	}
-	if (n == 3) {
-		widget = document.getElementById("player");
-	}			
-	if (n == 4) {
-		widget = document.getElementById("placeholder");
-	}			
-	if (widget.classList.contains("minimized"))  {
-		widget.classList.toggle("minimized");
-	}
-	widget.parentNode.appendChild(widget);
 } 

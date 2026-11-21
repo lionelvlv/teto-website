@@ -2,20 +2,23 @@ var template = document.getElementById("widgetTemplate");
 var desktop = document.getElementById("desktop");
 
 const widgetTemplates = document.getElementsByClassName("widgetContent");
-var widgetList = [];
+var widgetContents = [];
 for (var w of widgetTemplates) {
-	widgetList.push(w);
+	widgetContents.push(w);
 }
-
-for (var w of widgetList) {
-	var newWidget = template.content.cloneNode(true);
-	newWidget.querySelector(".widget").appendChild(w);
+var widgets = [];
+for (var w of widgetContents) {
+	var widgetTemplate = template.content.cloneNode(true);
+	var newWidget = widgetTemplate.querySelector(".widget");
+	newWidget.appendChild(w);
+	widgets.push(newWidget);
 	desktop.appendChild(newWidget);
 }
-console.log(widgetList);
+console.log(widgets);
 function closeWidget(e) {
 		var x = e.parentNode.parentNode.parentNode.parentNode;
 		x.remove();
+		updateTaskBar();
 }
 
 function restore(widget, recalculate, e) {
@@ -33,6 +36,7 @@ function restore(widget, recalculate, e) {
 		widget.style.setProperty("width", widget.previousSize.sizeX);
 		widget.style.setProperty("height", widget.previousSize.sizeY);
 		widget.classList.toggle("maximized");
+		updateTaskBar();
 }
 
 function maximizeWidget(e) {
@@ -47,10 +51,12 @@ function maximizeWidget(e) {
 		x.style.setProperty("width", desktop.clientWidth + "px");
 		x.style.setProperty("height", desktop.clientHeight + "px");
 		x.classList.toggle("maximized");
+		updateTaskBar();
 }
 function minimizeWidget(e) {
 		var x = e.parentNode.parentNode.parentNode.parentNode;
 		x.classList.toggle("minimized");
+		updateTaskBar();
 }
 var relX = 0;
 var rely = 0;
@@ -70,8 +76,8 @@ function clicked(event) {
 		restore(element, true, event);
 	}
 }
-const widgets = document.getElementsByClassName("widgetBar");
-for (const i of widgets) {
+const widgetbars = document.getElementsByClassName("widgetBar");
+for (const i of widgetbars) {
 	i.addEventListener("mousedown", clicked);
 }
 document.onmousemove = handleMouseMove;

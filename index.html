@@ -73,31 +73,24 @@
 
 			</div>
 			<div class = "taskbar">
+				<template id="taskTemplate">
+					<div class = "task"> 
+						<img src="icon23x23.png"> <span>Task</span>
+					</div>
+				</template>
 				<img src="startbutton.png">
 				<div style ="position:absolute; left:0px; display:flex;">
 					<img src="icon23x23.png"> 
 					<b>Start</b>
 				</div>
-				<div class= "taskbarlist">
-					<div class = "task" onclick="taskbar(1);"> 
-						<img src="icon23x23.png"> <span>Paint</span>
-					</div>
-					<div class = "task" onclick="taskbar(2);"> 
-						<img src="icon23x23.png"> <span>DVD</span>
-					</div>
-					<div class = "task" onclick="taskbar(3);"> 
-						<img src="icon23x23.png"> <span>Player</span>
-					</div>
-					<div class = "task" onclick="taskbar(4);"> 
-						<img src="icon23x23.png"> <span>Widget</span>
-					</div>
+				<div id= "taskbarlist">
 				</div>
 			</div>
 	    <script src="teto-player.js"></script>
 			<script src="dvd.js"></script>
 			<script src="paint.js"></script>
-			<script src="taskbar.js"></script>
 			<script src="widget.js"></script>
+			<script src="taskbar.js"></script>
 			<script src="wordle.js"></script>
 </body>
 </html>
