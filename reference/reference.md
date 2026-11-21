@@ -6,5 +6,9 @@ SPEC
 - windows xp 
 - moving elements
 - music player
-
+- where's teto
+- wordle tetordle
+- tetotris
+- pong
+- space invaders
 

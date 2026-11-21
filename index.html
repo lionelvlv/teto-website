@@ -63,6 +63,30 @@
 					</div>
 				</div>
 
+				<div class="widget" id="wordle" style="left: 1400px; top: 500px; width: 250px; height: 354px;"> 
+					<div class="widgetUI"> 
+						<div class="widgetBar">
+							<div style="flex-grow:1;">
+								<img src="icon.png" height="15px">
+								Widget
+							</div>
+							<div class="barButtons">
+								<button class="barButton close"onclick="closeWidget(this);">
+								<button class="barButton fullscreen"onclick="maximizeWidget(this);">
+								<button class="barButton restore" onclick="restore(this.parentNode.parentNode.parentNode.parentNode, false);">
+								<button class="barButton minimize" onclick="minimizeWidget(this);">
+							</div>
+						</div> 
+						<div class="widgetBG"></div>
+					</div>
+					<div class="widgetContent">
+						<p>wordle</p>
+						<div id="wordlerows">
+						</div>
+				</div>
+				<script src="wordle.js"></script>
+				</div>
+
 				<div class="widget" id="DVD" style="left: 1400px; top: 20px; width: 250px; height: 250px;">
 					<div class="widgetUI">
 						<div class="widgetBar">

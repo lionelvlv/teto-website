@@ -20,7 +20,6 @@ function pearFactory() {
 
 function spawnRange() {
 	var maxPears = spawnSlider.value; 
-	console.log(maxPears);
 	for (let i = 0; i < maxPears; i++) {
 		spawn();
 	} 
@@ -42,7 +41,6 @@ function spawn() {
 
 function deletePearRange() {
 	var maxPears = Math.min(spawnSlider.value, pears.length);
-	console.log(maxPears);
 	for (let i = 0; i < maxPears; i++) {
 		deletePear();
 	}
