@@ -222,7 +222,7 @@ body {
 		pointer-events: none;
 }
 
-#pear-box {
+.pear-box_content {
 	background-color: black;
 }
 
