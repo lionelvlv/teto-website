@@ -251,6 +251,10 @@ body {
 	background-color: black;
 }
 
+.terminal-box {
+	background-color: black;
+}
+
 #pear {
 	width: 50px;
 	position: absolute;

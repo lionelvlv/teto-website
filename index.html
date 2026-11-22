@@ -28,6 +28,10 @@
 						<img src="icon.png">
 						<span>Wordle</span>
 					</div>
+					<div class="icon selectable" ondblclick="makeWindow('terminal', 'terminal', 700,382,100,100);">
+						<img src="icon.png">
+						<span>Terminal</span>
+					</div>
 				</div>
 			
 				<template id="widgetTemplate">
@@ -89,7 +93,16 @@
 						</div>
 					</div>
 				</template>
-	
+
+				<template id="terminal">
+					<div class="widgetContent terminal-box" style="display:flex; flex-direction: row;">
+						<div class="terminal_text_container" style="color: white; margin:6px">
+							<p class="terminalText"></p>
+						</div>
+						<div class="terminal_caret" style="background-color:white; width:1px; height:20px; margin-top:16px; margin-left:5px"></div>
+					</div>
+				</template>
+
 				<!-- Paint -->
 				<template id="paint">
 					<div class="widgetContent">
@@ -130,6 +143,6 @@
 	    <script src="teto-player.js"></script>
 			<script src="dvd.js"></script>
 			<script src="wordle.js"></script>
-			
+			<script src="terminal.js"></script>
 </body>
 </html>
