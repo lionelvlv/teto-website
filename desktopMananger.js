@@ -22,7 +22,8 @@ function makeWidget(id, name, w, h, x, y) {
 	widget.style.top = y + "px";
 
 	const widgetBar = widget.querySelector(".widgetBar");
-	widgetBar.addEventListener("mousedown", (event) => clicked(event, widget));
+	widgetBar.addEventListener("mousedown", (event) => drag(event, widget));
+	widget.addEventListener("mousedown", (event) => click(widget));
 
 	if (id in widgetScripts) {
 		 widgetScripts[id](widget); // A function should be added to this for each widget.

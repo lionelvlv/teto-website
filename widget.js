@@ -29,7 +29,6 @@ function restore(widget, x, y) {
 
 function maximizeWidget(e) {
 		var widget = widgetFromButton(e);
-		widget.parentNode.appendChild(widget); //bring to foreground;
 
 		// When the restore button is pressed this is needed;
 		widget.restoreState = {
@@ -61,13 +60,11 @@ var dragData = {
 	clickY : 0,
 };
 
-function clicked(e, widget) {
+function drag(e, widget) {
 	// The buttons also have click listeners. This avoids a double invocation of restore. 
 	if (e.target.classList.contains("barButton")) {
 		return;
 	}
-
-	widget.parentNode.appendChild(widget); // bring to foreground;
 
 	var rect = widget.getBoundingClientRect();
 	dragData.clickX = e.pageX - rect.left;
@@ -87,6 +84,10 @@ function clicked(e, widget) {
 
 			restore(widget, x, 0);
 	}
+}
+
+function click(widget) {
+	widget.parentNode.appendChild(widget); // bring to foreground;
 }
 
 document.onmousemove = mouseMove;
