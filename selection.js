@@ -14,5 +14,5 @@ document.body.addEventListener("mousedown", (event) => {
 		currentlySelected = document.body;
 	}
 	currentlySelected.classList.add("highlighted");
-	console.log(currentlySelected);
+	// console.log(currentlySelected);
 });

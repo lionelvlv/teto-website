@@ -43,7 +43,7 @@ widgetScripts['wordle'] = (widget) => {
 			return;
 		}
 
-		if ((currGuessLen < ROW_LENGTH) && isValidInput(key)) {
+		if ((currGuessLen < ROW_LENGTH) && (isValidInput(key)) && !(gameOver.over)) {
 			var currElem = getElem(colIndex, currRowIndex);
 			currElem.children[0].innerHTML = key;
 			guess.text = guess.text + key;

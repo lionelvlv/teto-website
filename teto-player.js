@@ -21,7 +21,8 @@ widgetScripts["player"] = (widget) => {
 	stopButton.addEventListener("click", () => stopmusic());
 	nextButton.addEventListener("click", () => nextSong());
 	prevButton.addEventListener("click", () => prevSong());
-	
+	// var closeBarButton = widget.querySelector(".barButton close");
+	// closeBarButton.addEventListener("click", () => stopmusic());
 	var fastfwdButton = widget.querySelector(".player_fastfwdButton");
 	var reverseButton = widget.querySelector(".player_reverseButton");
 	
@@ -61,8 +62,11 @@ widgetScripts["player"] = (widget) => {
 	        playbutton.innerHTML = "play";
 	    }
 	    currSong.isPlaying = !currSong.isPlaying;
-	}
+	}	
 	
+	// function obj inside widget obj
+	widget.closeCallback = stopmusic;
+
 	function stopmusic() {
 	    currSong.audio.pause();
 	    currSong.audio.currentTime = 0;

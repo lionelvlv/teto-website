@@ -1,7 +1,10 @@
 function closeWidget(e) {
-		var x = e.parentNode.parentNode.parentNode.parentNode;
-		x.task.remove();
-		x.remove();
+		var widget = e.parentNode.parentNode.parentNode.parentNode;
+		if ("closeCallback" in widget) {
+			widget.closeCallback();
+		}
+		widget.task.remove();
+		widget.remove();
 		updateTaskBar();
 }
 
