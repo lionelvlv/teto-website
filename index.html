@@ -8,23 +8,23 @@
 <body>
 			<div id ="desktop">
 				<div class ="iconContainer">
-					<div class="icon selectable" ondblclick="makeWindow('pear-box', 'pears', 500,500,100,100);">
+					<div class="icon selectable" ondblclick="makeWidget('pear-box', 'pears', 500,500,100,100);">
 						<img src="icon.png">
 						<span>Pears</span>
 					</div>
-					<div class="icon selectable" ondblclick="makeWindow('player', 'player', 500,500,100,100);">
+					<div class="icon selectable" ondblclick="makeWidget('player', 'player', 500,500,100,100);">
 						<img src="icon.png">
 						<span>Music!</span>
 					</div>
-					<div class="icon selectable" ondblclick="makeWindow('paint', 'paint', 500,500,100,100);">
+					<div class="icon selectable" ondblclick="makeWidget('paint', 'paint', 500,500,100,100);">
 						<img src="icon.png"> 						
 						<span>Paint</span>
 					</div>
-					<div class="icon selectable" ondblclick="makeWindow('demo', 'demo', 500,500,100,100);">
+					<div class="icon selectable" ondblclick="makeWidget('demo', 'demo', 500,500,100,100);">
 						<img src="icon.png"> 
 						<span>Demo</span>
 					</div>
-					<div class="icon selectable" ondblclick="makeWindow('wordle', 'wordle', 212.5,300,100,100);">
+					<div class="icon selectable" ondblclick="makeWidget('wordle', 'wordle', 212.5,300,100,100);">
 						<img src="icon.png">
 						<span>Wordle</span>
 					</div>
@@ -41,7 +41,7 @@
 								<div class="barButtons">
 									<button class="barButton close"onclick="closeWidget(this);">
 									<button class="barButton fullscreen"onclick="maximizeWidget(this);">
-									<button class="barButton restore" onclick="restore(this.parentNode.parentNode.parentNode.parentNode, false);">
+									<button class="barButton restore" onclick="restore(this.parentNode.parentNode.parentNode.parentNode);">
 									<button class="barButton minimize" onclick="minimizeWidget(this);">
 								</div>
 							</div> 
@@ -119,8 +119,6 @@
 				<div id= "taskbarlist">
 				</div>
 			</div>
-			<script src="word-bank.js"></script>
-			<script src="valid-words.js"></script>
 			<script src="widget.js"></script>
 			<script src="taskbar.js"></script>
 			<script src="desktopMananger.js"></script>
@@ -129,6 +127,9 @@
 			<script src="paint.js"></script>
 	    <script src="teto-player.js"></script>
 			<script src="dvd.js"></script>
+
+			<script src="word-bank.js"></script>
+			<script src="valid-words.js"></script>
 			<script src="wordle.js"></script>
 			
 </body>

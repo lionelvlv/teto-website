@@ -167,7 +167,7 @@ widgetScripts['wordle'] = (widget) => {
 				elem.style.setProperty("width", "20px");
 				elem.style.setProperty("margin", "5px");
 				elem.style.setProperty("padding", "5px");
-				elem.style.setProperty("height", "20px");
+				elem.style.setProperty("heiight", "20px");
 				// decision: each elem knows it's correct letter
 				elem.letter = word[i];
 				var text = document.createElement('div');
