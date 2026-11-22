@@ -6,6 +6,9 @@ function widgetFromButton(e) {
 function closeWidget(e) {
 		var widget = widgetFromButton(e);
 
+		if ("closeCallback" in widget) {
+			widget.closeCallback();
+		}
 		removeTask(widget);
 		widget.remove();
 		updateTaskBar();
