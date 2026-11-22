@@ -21,6 +21,7 @@ widgetScripts['wordle'] = (widget) => {
 	var currGuessLen = 0;
 	var currRowIndex = 0;
 	var guess = { text: "", };
+	var gameOver = { over: false, };
 
 	document.addEventListener("keydown", function(event) {
 		// console.log("key " + event.key + " pressed!")
@@ -79,7 +80,7 @@ widgetScripts['wordle'] = (widget) => {
 					letterMap[guess.text[i]] -= 1;
 				}
 			}
-			if (guess.text == word) {
+			if ((guess.text == word) && !gameOver.over) {
 				addPromptButton();
 				return;
 
@@ -93,7 +94,7 @@ widgetScripts['wordle'] = (widget) => {
 			setTimeout(() => {resetRow();}, 100);
 		} 
 
-		if (currGuess >= MAX_GUESSES) {
+		if (currGuess >= MAX_GUESSES && !gameOver.over) {
 			alert("the word was " + word);
 			addPromptButton();
 			return;
@@ -117,6 +118,7 @@ widgetScripts['wordle'] = (widget) => {
 	}
 
 	function endGame() {
+		gameOver.over = false;
 		var goodbye = widget.querySelector(".wordle-button-container");
 		goodbye.remove();
 		resetRows();
@@ -128,6 +130,7 @@ widgetScripts['wordle'] = (widget) => {
 	}
 
 	function addPromptButton() {
+		gameOver.over = true;
 		var tetosound = new Audio("./assets/sounds/teto.mp3");
 		tetosound.play();
 		var div = document.createElement("div");
