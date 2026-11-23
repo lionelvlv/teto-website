@@ -88,7 +88,7 @@ function drag(e, widget) {
 	}
 }
 
-function click(widget) {
+function click(event, widget) {
 	widget.parentNode.appendChild(widget); // bring to foreground;
 }
 
