@@ -66,6 +66,8 @@ function drag(e, widget) {
 		return;
 	}
 
+	widget.parentNode.appendChild(widget); // bring to foreground;
+
 	var rect = widget.getBoundingClientRect();
 	dragData.clickX = e.pageX - rect.left;
 	dragData.clickY = e.pageY - rect.top;
