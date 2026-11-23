@@ -1,0 +1,117 @@
+.widget {
+	position: absolute;
+	width: 250px;
+	height: 250px;
+	resize: both;
+  overflow: hidden;
+	top: 100px;
+	left: 100px;
+	z-index: 0;	
+}
+.widgetBar {
+	display: flex;
+	width: 100%;
+	font-size: 12.5px;
+	color: white;
+	text-shadow: 2px, 2px;
+}
+.barButtons {
+	display:flex; 
+	flex-direction: row-reverse; 
+	padding-right: 5px;
+}
+.widgetBar::before {
+	position: absolute;
+	content: "";
+	width: calc(100% - 44px);
+	height: 0px;
+	border-bottom: 0px;
+	border-top: 22px;
+	border-left: 22px;
+	border-right: 22px;
+
+	z-index: -1;	
+	border-style: solid;
+  border-image: url("assets/widgetbar.png") 22 round;
+	image-rendering: pixelated;
+}
+
+.barButton {
+	margin: 2px;
+	height: 15px;
+	width: 15px;
+	border:none;
+}
+
+.barButton:hover {
+	filter: brightness(1.2);
+}
+.barButton:active {
+	filter: brightness(0.5);
+}
+
+.close {
+	background: url("assets/close.png");
+	background-size: contain;
+}
+.fullscreen {
+	background: url("assets/fullscreen.png");
+	background-size: contain;
+}
+.minimize {
+	background: url("assets/minimize.png");
+	background-size: contain;
+}
+
+.restore {
+	display:none;
+	background: url("assets/restore.png");
+	background-size: contain;
+}
+.maximized .restore {
+	display:inline;
+}
+
+.maximized .fullscreen {
+	display:none;
+}
+.maximized {
+	resize: none;
+}
+
+.minimized {
+	display:none;
+}
+
+
+.widgetUI::before {
+	content: "";
+	position: absolute;
+	border-top:0px;
+	border-left:22px;
+	border-right:22px;
+	border-bottom:22px;
+	width:calc(100% - 44px);
+	height:calc(100% - 22px);
+	border-style: solid;
+  border-image: url("assets/widget.png") 22 round;
+	image-rendering: pixelated;
+	z-index: -1;	
+}
+
+.widgetUI {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #efede0;
+	z-index:-2;
+}
+
+.widgetContent {
+	position: absolute;
+	width: calc(100% - 10px);
+	height: calc(100% - 26px);
+	top: 22px;
+	left: 5px;
+  overflow: hidden;
+}

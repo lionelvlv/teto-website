@@ -17,7 +17,7 @@ widgetScripts["pear-box"] = (widget) => {
 				currY: 0,
 				velocityX: 5,
 				velocityY: 5,
-				pear: "icon.png",
+				pear: "assets/icon.png",
 				magicNumber: 0, 
 		};
 	}

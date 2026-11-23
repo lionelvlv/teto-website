@@ -2,6 +2,9 @@
 <html>
 <head>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="widget.css">
+    <link rel="stylesheet" href="taskbar.css">
+    <link rel="stylesheet" href="desktop.css">
     <title>Page Title</title>
 </head>
 
@@ -9,27 +12,27 @@
 			<div id ="desktop">
 				<div class ="iconContainer">
 					<div class="icon selectable" ondblclick="makeWidget('pear-box', 'pears', 500,500,100,100);">
-						<img src="icon.png">
+						<img src="assets/icon.png">
 						<span>Pears</span>
 					</div>
 					<div class="icon selectable" ondblclick="makeWidget('player', 'player', 500,500,100,100);">
-						<img src="icon.png">
+						<img src="assets/icon.png">
 						<span>Music!</span>
 					</div>
 					<div class="icon selectable" ondblclick="makeWidget('paint', 'paint', 500,500,100,100);">
-						<img src="icon.png"> 						
+						<img src="assets/icon.png"> 						
 						<span>Paint</span>
 					</div>
 					<div class="icon selectable" ondblclick="makeWidget('demo', 'demo', 500,500,100,100);">
-						<img src="icon.png"> 
+						<img src="assets/icon.png"> 
 						<span>Demo</span>
 					</div>
 					<div class="icon selectable" ondblclick="makeWidget('wordle', 'wordle', 212.5,300,100,100);">
-						<img src="icon.png">
+						<img src="assets/icon.png">
 						<span>Wordle</span>
 					</div>
 					<div class="icon selectable" ondblclick="makeWidget('terminal', 'terminal', 700,382,100,100);">
-						<img src="icon.png">
+						<img src="assets/icon.png">
 						<span>Terminal</span>
 					</div>
 				</div>
@@ -39,7 +42,7 @@
 						<div class="widgetUI"> 
 							<div class="widgetBar">
 								<div style="flex-grow:1;">
-									<img src="icon.png" height="15px">
+									<img src="assets/icon.png" height="15px">
 									<span class ="widgetName">Widget</span>
 								</div>
 								<div class="barButtons">
@@ -121,12 +124,12 @@
 			<div class = "taskbar">
 				<template id="taskTemplate">
 					<div class = "task"> 
-						<img src="icon23x23.png"> <span class="widgetName">Task</span>
+						<img src="assets/icon23x23.png"> <span class="widgetName">Task</span>
 					</div>
 				</template>
-				<img src="startbutton.png">
+				<img src="assets/startbutton.png">
 				<div style ="position:absolute; left:0px; display:flex;">
-					<img src="icon23x23.png"> 
+					<img src="assets/icon23x23.png"> 
 					<b>Start</b>
 				</div>
 				<div id= "taskbarlist">

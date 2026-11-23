@@ -1,230 +1,7 @@
 * {
   user-select: none;
 }
-.iconContainer {
-	display:flex;
-	flex-direction: column;
-}
 
-.iconContainer img {
-	width: 70px;
-}
-
-.icon {
-	display:flex;
-	flex-direction: column;
-	width: 70px;
-	margin-top: 5px;
-}
-
-.icon.highlighted {
-	filter: hue-rotate(180deg);
-	border-style: dashed;
-	border-width: 2px;
-}
-.icon span {
-	text-align: center;
-	color: white;
-	filter: drop-shadow(1px 1px 0px #444444);
-}
-.task {
-	position: relative;
-	display:flex;
-	font-size: 10px;
-	margin-top: 2.5px;
-	margin-bottom: 2.5px;
-	flex-shrink: 1;
-	flex-basis: 20%;
-}
-
-.task::before {
-	position: absolute;
-	width: calc(100% - 44px);
-	display: block;
-	content: "";	
-	background-color: grey;
-  border-image: url("task.png") 23 round;
-	border-top:23px;
-	border-left:23px;
-	border-right:23px;
-	border-bottom:0px;
-	border-style: solid;
-	z-index: -1;
-	image-rendering: pixelated;
-}
-
-.task:hover {
-	filter: brightness(1.2);
-}
-
-.task:active {
-	filter: brightness(0.5);
-}
-.taskbar {
-	height:28px;
-	width: 80%;
-	margin: 0;
-	padding: 0;
-	color: white;
-	display:flex;
-	z-index: 0;	
-}
-
-.taskbar b,.task span {
-	margin-left: 5px;
-	margin-top: 5px;
-}
-
-.taskbar::before {
-	content: "";
-	position:absolute;
-	height: 0%;
-	width: 100%;
-  border-image: url("taskbar.png") 28 round;
-	border-top:0px;
-	border-left:0px;
-	border-right:0px;
-	border-bottom:28px;
-	z-index: -1;	
-	image-rendering: pixelated;
-	border-style: solid;
-}
-
-#taskbarlist {
-	display:flex;
-	width: 100%;
-	height: 100%;
-}
-.taskMinimized {
-	filter: brightness(0.7);
-}
-
-.widget {
-	position: absolute;
-	width: 250px;
-	height: 250px;
-	resize: both;
-  overflow: hidden;
-	top: 100px;
-	left: 100px;
-	z-index: 0;	
-}
-.widgetBar {
-	display: flex;
-	width: 100%;
-	font-size: 12.5px;
-	color: white;
-	text-shadow: 2px, 2px;
-}
-.barButtons {
-	display:flex; 
-	flex-direction: row-reverse; 
-	padding-right: 5px;
-}
-.widgetBar::before {
-	position: absolute;
-	content: "";
-	width: calc(100% - 44px);
-	height: 0px;
-	border-bottom: 0px;
-	border-top: 22px;
-	border-left: 22px;
-	border-right: 22px;
-
-	z-index: -1;	
-	border-style: solid;
-  border-image: url("widgetbar.png") 22 round;
-	image-rendering: pixelated;
-}
-
-.barButton {
-	margin: 2px;
-	height: 15px;
-	width: 15px;
-	border:none;
-}
-
-.barButton:hover {
-	filter: brightness(1.2);
-}
-.barButton:active {
-	filter: brightness(0.5);
-}
-
-.close {
-	background: url("close.png");
-	background-size: contain;
-}
-.fullscreen {
-	background: url("fullscreen.png");
-	background-size: contain;
-}
-.minimize {
-	background: url("minimize.png");
-	background-size: contain;
-}
-
-.restore {
-	display:none;
-	background: url("restore.png");
-	background-size: contain;
-}
-.maximized .restore {
-	display:inline;
-}
-
-.maximized .fullscreen {
-	display:none;
-}
-.maximized {
-	resize: none;
-}
-
-.minimized {
-	display:none;
-}
-
-
-.widgetUI::before {
-	content: "";
-	position: absolute;
-	border-top:0px;
-	border-left:22px;
-	border-right:22px;
-	border-bottom:22px;
-	width:calc(100% - 44px);
-	height:calc(100% - 22px);
-	border-style: solid;
-  border-image: url("widget.png") 22 round;
-	image-rendering: pixelated;
-	z-index: -1;	
-}
-
-.widgetUI {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background-color: #efede0;
-	z-index:-2;
-}
-
-.widgetContent {
-	position: absolute;
-	width: calc(100% - 10px);
-	height: calc(100% - 26px);
-	top: 22px;
-	left: 5px;
-  overflow: hidden;
-}
-
-
-#myCanvas {
-	margin-top: 5px;
-}
-#desktop {
-	width: 100%;
-	height:100%;
-}
 body {
   background-image: url(./assets/Bliss.jpg);
   background-size: cover;
@@ -236,15 +13,14 @@ body {
 	flex-direction: column;	
 }
 
+#desktop {
+	width: 100%;
+	height:100%;
+}
+
 .player_timetext {
 	display: flex;
 	flex-direction: row;
-}
-
-#player img {
-    user-drag: none;
-    user-select: none;
-		pointer-events: none;
 }
 
 .pear-box_content {
@@ -255,7 +31,3 @@ body {
 	background-color: black;
 }
 
-#pear {
-	width: 50px;
-	position: absolute;
-}

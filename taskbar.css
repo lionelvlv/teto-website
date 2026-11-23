@@ -1,0 +1,71 @@
+.task {
+	position: relative;
+	display:flex;
+	font-size: 10px;
+	margin-top: 2.5px;
+	margin-bottom: 2.5px;
+	flex-shrink: 1;
+	flex-basis: 20%;
+}
+
+.task::before {
+	position: absolute;
+	width: calc(100% - 44px);
+	display: block;
+	content: "";	
+	background-color: grey;
+  border-image: url("assets/task.png") 23 round;
+	border-top:23px;
+	border-left:23px;
+	border-right:23px;
+	border-bottom:0px;
+	border-style: solid;
+	z-index: -1;
+	image-rendering: pixelated;
+}
+
+.task:hover {
+	filter: brightness(1.2);
+}
+
+.task:active {
+	filter: brightness(0.5);
+}
+.taskbar {
+	height:28px;
+	width: 80%;
+	margin: 0;
+	padding: 0;
+	color: white;
+	display:flex;
+	z-index: 0;	
+}
+
+.taskbar b,.task span {
+	margin-left: 5px;
+	margin-top: 5px;
+}
+
+.taskbar::before {
+	content: "";
+	position:absolute;
+	height: 0%;
+	width: 100%;
+  border-image: url("assets/taskbar.png") 28 round;
+	border-top:0px;
+	border-left:0px;
+	border-right:0px;
+	border-bottom:28px;
+	z-index: -1;	
+	image-rendering: pixelated;
+	border-style: solid;
+}
+
+#taskbarlist {
+	display:flex;
+	width: 100%;
+	height: 100%;
+}
+.taskMinimized {
+	filter: brightness(0.7);
+}
