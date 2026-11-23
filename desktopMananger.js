@@ -23,7 +23,9 @@ function makeWidget(id, name, w, h, x, y) {
 
 	const widgetBar = widget.querySelector(".widgetBar");
 	widgetBar.addEventListener("mousedown", (event) => drag(event, widget));
-	widget.addEventListener("mousedown", (event) => click(widget));
+  // Chromium doesn't preserve the state of mouse events when the div is moved. (guess)
+	// I'm using click so that buttons can be triggerd before div is moved to foreground.
+	widget.addEventListener("click", (event) => click(widget));
 
 	if (id in widgetScripts) {
 		 widgetScripts[id](widget); // A function should be added to this for each widget.
