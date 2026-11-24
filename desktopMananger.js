@@ -2,7 +2,7 @@ var widgetScripts = [];
 var widgetTemplate = document.getElementById("widgetTemplate");
 var desktop = document.getElementById("desktop");
 
-function makeWidget(id, name, w, h, x, y) {
+function makeWidget(id, name = "default", w = 200, h = 200, x = 100, y = 100) {
 	// Grab contents of widget from <template id="$id"> and create a clone of it. 
 	var contents = document.getElementById(id).content.cloneNode(true);
 	// Similarly grab widget template and clone it.
