@@ -108,7 +108,7 @@ function mouseMove(e) {
 		const s = dragData.selected.style;
 		s.left = (e.pageX - dragData.clickX).toString() + "px";
 		s.top = (e.pageY - dragData.clickY).toString() + "px";
-		frameBufferGlitch(dragData.selected);
+//		frameBufferGlitch(dragData.selected);
 	}
 }
 
