@@ -32,8 +32,8 @@ function maximizeWidget(e) {
 
 		// When the restore button is pressed this is needed;
 		widget.restoreState = {
-											height: widget.style.width, 
-											width: widget.style.height, 
+											height: widget.style.height, 
+											width: widget.style.width, 
 											x: widget.style.left, 
 											y: widget.style.top};
 
@@ -92,12 +92,23 @@ function click(event, widget) {
 	widget.parentNode.appendChild(widget); // bring to foreground;
 }
 
+function frameBufferGlitch(widget) {
+	var desktop = document.getElementById("desktop");
+	var clone = widget.cloneNode(true);
+	clone.classList.remove("selectable");
+	clone.classList.remove("highlighted");
+	clone.style["pointer-events"] = "none";
+	desktop.appendChild(clone);
+	widget.parentNode.appendChild(widget); // bring to foreground;
+}
+
 document.onmousemove = mouseMove;
 function mouseMove(e) {
 	if (dragData.selected) {
 		const s = dragData.selected.style;
 		s.left = (e.pageX - dragData.clickX).toString() + "px";
 		s.top = (e.pageY - dragData.clickY).toString() + "px";
+		frameBufferGlitch(dragData.selected);
 	}
 }
 

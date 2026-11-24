@@ -16,3 +16,4 @@ document.body.addEventListener("mousedown", (event) => {
 	}
 	currentlySelected.classList.add("highlighted");
 });
+
