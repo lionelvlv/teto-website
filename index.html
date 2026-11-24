@@ -35,6 +35,10 @@
 						<img src="assets/icon.png">
 						<span>Terminal</span>
 					</div>
+					<div class="icon selectable" ondblclick="makeWidget('terminal2', 'terminal2', 700,382,100,100);">
+						<img src="assets/icon.png">
+						<span>Terminal</span>
+					</div>
 				</div>
 			
 				<template id="widgetTemplate">
@@ -106,6 +110,14 @@
 					</div>
 				</template>
 
+				<template id="terminal2">
+					<div class="widgetContent">
+						<p class="terminalHistory" style="width:100%;"></p>
+						<input class="terminalInput" type="text" style="width:100%; margin:0; padding:0;"> </input>
+
+					</div>
+				</template>
+
 				<!-- Paint -->
 				<template id="paint">
 					<div class="widgetContent">
@@ -148,5 +160,6 @@
 			<script src="valid-words.js"></script>
 			<script src="wordle.js"></script>
 			<script src="terminal.js"></script>
+			<script src="terminal2.js"></script>
 </body>
 </html>

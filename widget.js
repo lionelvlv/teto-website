@@ -89,7 +89,7 @@ function drag(e, widget) {
 }
 
 function click(event, widget) {
-	widget.parentNode.appendChild(widget); // bring to foreground;
+//	widget.parentNode.appendChild(widget); // bring to foreground;
 }
 
 function frameBufferGlitch(widget) {
