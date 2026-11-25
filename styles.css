@@ -4,7 +4,7 @@
 }
 
 body {
-  background-image: url(./assets/bliss2.jpg);
+  background-image: url(./assets/Bliss.jpg);
   background-size: cover;
 	height: 100vh;
 	width: 100vw;
@@ -12,6 +12,10 @@ body {
 	overflow: hidden; 
 	display: flex;
 	flex-direction: column;	
+}
+
+body.surprise {
+  background-image: url(./assets/bliss2.jpg);
 }
 
 #desktop {

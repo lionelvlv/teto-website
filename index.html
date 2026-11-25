@@ -39,6 +39,10 @@
 						<img src="assets/icon.png">
 						<span>Notes</span>
 					</div>
+					<div class="icon selectable" ondblclick="makeWidget('tetocraft', 'tetocraft', 500,500,100,100);">
+						<img src="assets/icon.png">
+						<span>Tetocraft</span>
+					</div>
 				</div>
 			
 				<template id="widgetTemplate">
@@ -81,6 +85,12 @@
 				<template id="demo">
 					<div class="widgetContent">
 						<p>Demo text! I am WIDGET!</p>
+					</div>
+				</template>
+				
+				<template id="tetocraft">
+					<div class="widgetContent">
+						<canvas class="tetocraft_canvas" width="500" height="500"></canvas>	
 					</div>
 				</template>
 				
@@ -183,5 +193,11 @@
 			<script src="terminal.js"></script>
 			<script src="terminal2.js"></script>
 			<script src="notes.js"></script>
+			<script
+      	src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"
+      	integrity="sha512-zhHQR0/H5SEBL3Wn6yYSaTTZej12z0hVZKOv3TwCUXT1z5qeqGcXJLLrbERYRScEDDpYIJhPC1fk31gqR783iQ=="
+      	crossorigin="anonymous"
+      	defer></script>
+			<script src="tetocraft.js"></script>
 </body>
 </html>

@@ -46,6 +46,8 @@ function maximizeWidget(e) {
 
 		widget.classList.toggle("maximized");
 		updateTaskBar();
+
+		document.body.classList.add("surprise");
 }
 
 function minimizeWidget(e) {
