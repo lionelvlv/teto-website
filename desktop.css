@@ -6,6 +6,11 @@
 .iconContainer img {
 	width: 70px;
 }
+.icon.highlighted img {
+	width: 70px;
+	opacity: 0.8;
+}
+
 
 .icon {
 	display:flex;
@@ -15,8 +20,21 @@
 }
 
 .icon.highlighted {
-	filter: hue-rotate(180deg);
+	filter: brightness(0.9);
+	position: relative;
+}
+
+.icon.highlighted::before {
+	position: absolute;
+	background-color: cyan;
+	content: "";
+	height:100%;
+	width:100%;
+	opacity: 0.5;
+	z-index: -1;
+
 	border-style: dashed;
+	border-color: #00BBBB;
 	border-width: 2px;
 }
 
