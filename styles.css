@@ -3,6 +3,10 @@
 	font-family: "Tahoma";
 }
 
+.icon img {
+	image-rendering: pixelated;
+}
+
 body {
   background-image: url(./assets/Bliss.jpg);
   background-size: cover;
