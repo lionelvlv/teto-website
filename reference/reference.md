@@ -11,4 +11,9 @@ SPEC
 - tetotris
 - pong
 - space invaders
-
+- messenger app (peerjs)
+- calculator
+- recycle bin
+- file explorer
+- settings
+- draggable desktop icons

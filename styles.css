@@ -32,20 +32,22 @@ body {
 	background-color: black;
 }
 
-.file-dropdown {
-	display: relative;
+.dropdown {
+	margin-left: 8px;
+	margin-top: 2px;
+	font-size: 12px;
 }
 
-.file-dropdown-content {
+.dropdown-content {
 	display: none;
 }
 
-.file-dropdown:hover {
+.dropdown:hover {
 	background-color: blue;
 	color: white;
 }
 
-.file-dropdown:hover .file-dropdown-content {
+.dropdown:hover .dropdown-content {
 	display: flex; 
 	flex-direction: column;
 	position: absolute;
@@ -55,7 +57,7 @@ body {
 	outline-color: #d6d3d6; 
 }
 
-.file-dropdown-content button {
+.dropdown-content button {
 	border: none;
 }
 

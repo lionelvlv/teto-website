@@ -4,14 +4,34 @@ widgetScripts["notes"] = (widget) => {
 	var saveAsNotesbtn = widget.querySelector(".save2-notes-file-btn");
 	var openNotesbtn = widget.querySelector(".open-notes-file-btn");
 
+	var dropdownContainer = widget.querySelector(".dropdown-container");
 
-	newNotesbtn.addEventListener("click", () => newNote());
-	saveNotesbtn.addEventListener("click", () => saveNotes());
-	openNotesbtn.addEventListener("click", () => openNotes());
-	saveAsNotesbtn.addEventListener("click", () => saveAs());
+	// newNotesbtn.addEventListener("click", () => newNote());
+	// saveNotesbtn.addEventListener("click", () => saveNotes());
+	// openNotesbtn.addEventListener("click", () => openNotes());
+	// saveAsNotesbtn.addEventListener("click", () => saveAs());
+
+	function generateDropdowns() {
+		var filedropdown = document.createElement("div");
+		filedropdown.className = "dropdown";
+		filedropdown.innerHTML = "File";
+
+		var filedropdowncontent = document.createElement("div");
+		filedropdowncontent.className = "dropdown-content"; 
+
+		filedropdown.appendChild(filedropdowncontent);
+		dropdownContainer.appendchild(filedropdown);
+	}
+
+	generateDropdowns();
+
+	function updateNoteName(name) {
+		updateName(name, widget);
+	}
 
 	function newNote() {
 		console.log("new note");
+		updateNoteName("test");
 	}
 
 	function saveNotes() {
