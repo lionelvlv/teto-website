@@ -32,3 +32,49 @@ body {
 	background-color: black;
 }
 
+.file-dropdown {
+	display: relative;
+}
+
+.file-dropdown-content {
+	display: none;
+}
+
+.file-dropdown:hover {
+	background-color: blue;
+	color: white;
+}
+
+.file-dropdown:hover .file-dropdown-content {
+	display: flex; 
+	flex-direction: column;
+	position: absolute;
+	background-color:white;
+	outline-style: solid;
+	outline-width: 1px;
+	outline-color: #d6d3d6; 
+}
+
+.file-dropdown-content button {
+	border: none;
+}
+
+.new-notes-file-btn:hover {
+	background-color: blue;
+	color: white;
+}
+
+.open-notes-file-btn:hover{
+	background-color: blue;
+	color: white;
+}
+
+.save-notes-file-btn:hover{
+	background-color: blue;
+	color: white;
+}
+
+.save2-notes-file-btn:hover {
+	background-color: blue;
+	color: white;
+}
