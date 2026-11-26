@@ -2,6 +2,7 @@ var iconContainer = document.getElementsByClassName("iconContainer")[0].children
 
 for (let icon of iconContainer) {
     icon.addEventListener("mousedown", (event) => dragMouseDown(event, icon));
+    icon.style.setProperty("position", "absolute");
     icon.setAttribute("draggable", true);
     console.log(icon);
 }
