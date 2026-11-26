@@ -23,3 +23,5 @@ SPEC
 - startup sound
 - loading screen
 - users
+- dropdown
+- right-click dropdown

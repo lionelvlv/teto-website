@@ -1,6 +1,15 @@
 var widgetScripts = [];
 var widgetTemplate = document.getElementById("widgetTemplate");
 var desktop = document.getElementById("desktop");
+const WINDOWS_STARTUP_SOUND = new Audio("./assets/sounds/startupsound.mp3");
+desktop.addEventListener("click", startUpSound)
+
+function startUpSound() {
+	WINDOWS_STARTUP_SOUND.volume = 0.3;
+	WINDOWS_STARTUP_SOUND.play();
+	// so this shit only plays once
+	desktop.removeEventListener("click", startUpSound);
+}
 
 function makeWidget(id, name = "default", w = 200, h = 200, x = 100, y = 100) {
 	// Grab contents of widget from <template id="$id"> and create a clone of it. 
