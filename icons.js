@@ -19,13 +19,15 @@ function snapToGrip(val,gridSize) {
     }
 }
 
+icon_onmouseup = null;
+icon_onmousemove = null;
 
 function dragMouseDown(e, icon) {
     e.preventDefault();
     // get the mouse cursor position at startup:
-    document.onmouseup = closeDragElement;
+   icon_onmouseup = closeDragElement;
     // call a function whenever the cursor moves:
-    document.onmousemove = elementDrag;
+   icon_onmousemove = elementDrag;
 
     function elementDrag(e) {
         e.preventDefault();
@@ -36,8 +38,8 @@ function dragMouseDown(e, icon) {
 
     function closeDragElement() {
         // stop moving when mouse button is released:
-        document.onmouseup = null;
-        document.onmousemove = null;
+					icon_onmouseup = null;
+ 		      icon_onmousemove = null;
     }
 }
 
