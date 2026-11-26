@@ -169,7 +169,6 @@ function frameBufferGlitch(widget) {
 	widget.parentNode.appendChild(widget); // bring to foreground;
 }
 
-document.onmousemove = mouseMove;
 function mouseMove(e) {
 	if (dragData.selected) {
 		if (dragData.dragTitle) {

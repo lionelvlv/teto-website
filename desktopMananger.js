@@ -36,6 +36,13 @@ function makeWidget(id, name = "default", w = 200, h = 200, x = 100, y = 100) {
 	updateTaskBar();
 }
 
+document.onmousemove = (e) => {
+	mouseMove(e);
+	if (icon_onmousemove) {
+		icon_onmousemove(e);
+	}
+};
+
 document.onmousedown = mouseDown;
 document.onmouseup = mouseUp;
 var mouseState = "up"; // Globally useful so it belongs here. Only used in paint.js currently. 
@@ -47,4 +54,7 @@ function mouseUp(ev) {
 	dragData.selected = null;
 	document.body.style.cursor = "initial";
 	mouseState = "up";
+	if (icon_onmouseup) {
+		icon_onmouseup(ev);
+	}
 }
