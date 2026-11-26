@@ -22,7 +22,8 @@ function makeWidget(id, name = "default", w = 200, h = 200, x = 100, y = 100) {
 	widget.style.top = y + "px";
 
 	const widgetBar = widget.querySelector(".widgetBar");
-	widgetBar.addEventListener("mousedown", (event) => drag(event, widget));
+	widget.addEventListener("mousedown", (event) => drag(event, widget));
+	widget.addEventListener("mousemove", (event) => over(event, widget));
   // Chromium doesn't preserve the state of mouse events when the div is moved. (guess)
 	// I'm using click so that buttons can be triggerd before div is moved to foreground.
 	widget.addEventListener("click", (event) => click(event, widget));
@@ -44,5 +45,6 @@ function mouseDown(ev) {
 
 function mouseUp(ev) {
 	dragData.selected = null;
+	document.body.style.cursor = "initial";
 	mouseState = "up";
 }
