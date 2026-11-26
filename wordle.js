@@ -190,7 +190,7 @@ widgetScripts['wordle'] = (widget) => {
 	function pullWord() {
 		var arrSize = wordBank.length;
 		var magicNumber = Math.floor(Math.random() * arrSize);
-		return wordBank[arrSize % magicNumber];
+		return wordBank[magicNumber];
 	}
 
 	function nextRow() {
