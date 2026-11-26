@@ -17,13 +17,12 @@ function generateDropdowns(objList, widget) {
 	// ]
 
 function generateObjList(currName, currContent, lstName, lstContent) {
-	if  
 	objList = [];
 
 	newObj = {
-		name: currName;
-		content: generateObjList(currContent);
-	}
+		name: currName,
+		content: generateObjList(currContent),
+	};
 
 	objList.appendChild(newObj);
 
