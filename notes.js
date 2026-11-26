@@ -11,19 +11,19 @@ widgetScripts["notes"] = (widget) => {
 	// openNotesbtn.addEventListener("click", () => openNotes());
 	// saveAsNotesbtn.addEventListener("click", () => saveAs());
 
-	function generateDropdowns() {
-		var filedropdown = document.createElement("div");
-		filedropdown.className = "dropdown";
-		filedropdown.innerHTML = "File";
+	// function generateDropdowns() {
+	// 	var filedropdown = document.createElement("div");
+	// 	filedropdown.className = "dropdown";
+	// 	filedropdown.innerHTML = "File";
 
-		var filedropdowncontent = document.createElement("div");
-		filedropdowncontent.className = "dropdown-content"; 
+	// 	var filedropdowncontent = document.createElement("div");
+	// 	filedropdowncontent.className = "dropdown-content"; 
 
-		filedropdown.appendChild(filedropdowncontent);
-		dropdownContainer.appendChild(filedropdown);
-	}
+	// 	filedropdown.appendChild(filedropdowncontent);
+	// 	dropdownContainer.appendChild(filedropdown);
+	// }
 
-	generateDropdowns();
+	// generateDropdowns();
 
 	function updateNoteName(name) {
 		updateName(name, widget);

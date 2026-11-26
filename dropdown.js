@@ -1,30 +1,20 @@
-function generateDropdowns(objList, widget) {
-	var filedropdown = document.createElement("div");
-	filedropdown.className = "dropdown";
-	filedropdown.innerHTML = "File";
-
-	var filedropdowncontent = document.createElement("div");
-	filedropdowncontent.className = "dropdown-content"; 
-
-	filedropdown.appendChild(filedropdowncontent);
-	dropdownContainer.appendchild(filedropdown);
+function generateDropdowns(objList, parentElem) {
+	var div = document.createElement("div");
+	div.className = "dropdown";
+	for (obj of objList) {
+		currName = obj.name;
+		currFunc = obj.content;
+		var currDiv = document.createElement("button");
+		currDiv.className = "dropdown-content";
+		currDiv.addEventListener("click", currFunc);
+		text = document.createElement("p");
+		text.innerHTML = currName;
+		currDiv.appendChild(text);
+		div.appendChild(currDiv);
+	}
+	parentElem.appendChild(div);
 }
-	// objList = [
-	// {
-  // name: "File",
-	// content: [{name: "New", content: func}, {name: "Open", content: func}, {name: "Save", content:func}, {name: "Save As", content:func}]
-	// },
-	// ]
 
-function generateObjList(currName, currContent, lstName, lstContent) {
-	objList = [];
-
-	newObj = {
-		name: currName,
-		content: generateObjList(currContent),
-	};
-
-	objList.appendChild(newObj);
-
-
+function generateObjList2d(name, content) {
+	return {name: name, content: content,};
 }

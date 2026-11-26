@@ -4,10 +4,9 @@
 SPEC
 - js, html, css
 - windows xp 
-- moving elements
-- music player
+- music player *need ui overhaul*
 - where's teto
-- wordle tetordle
+- wordle tetordle *need letter ui*
 - tetotris
 - pong
 - space invaders
@@ -16,11 +15,11 @@ SPEC
 - recycle bin
 - file explorer
 - settings
-- draggable desktop icons
+- draggable desktop icons ☑
 - rhythm game
 - 2048
-- krillion
-- startup sound
+- krillion 
+- startup sound ☑
 - loading screen
 - users
 - dropdown
