@@ -1,10 +1,83 @@
-var iconContainer = document.getElementsByClassName("iconContainer")[0].children;
+var iconContainer = document.getElementsByClassName("iconContainer")[0];
 
-for (let icon of iconContainer) {
+const ICONSIZE = 100;
+var horizontaloffset = 0
+var verticaloffset = 0;
+
+const icons = [
+    { 
+        name: 'pears',
+        image: "assets/icon64x64.png",
+        id: 'pear-box',
+        width: 500,
+        height: 500,
+    },
+    {
+        name: 'player',
+        image: "assets/playericon.png",
+        id: 'player', 
+        width: 500,
+        height: 500,
+    },
+    {
+        name: 'paint',
+        id: 'paint',
+        width: 500,
+        height: 500,
+        image: "assets/painticon.png",
+    },
+    {
+        name: 'wordle',
+        id: 'wordle',
+        width: 212.5,
+        height: 300,
+        image: "assets/wordleicon.png", 
+    },
+    {
+        name: 'terminal',
+        id: 'terminal2',
+        width: 700,
+        height: 382,
+        image: "assets/terminalicon.png",
+    },
+    {
+        name: 'notes',
+        id: 'notes',
+        width: 700,
+        height: 382,
+        image: "assets/notesicon.png",
+    },
+    {
+        name: 'tetocraft',
+        id: 'tetocraft',
+        width: 500,
+        height: 500,
+        image: "assets/tetocrafticon.png", 
+    }
+] 
+
+for (let elem of icons) {
+    let icon = document.createElement("div");
+    icon.className = "icon selectable";
+    let imgElem = document.createElement("img");
+    imgElem.src = elem.image;
+    
+    let spanElem = document.createElement("span");
+    spanElem.innerHTML = elem.name;
+
+    console.log(icon, verticaloffset, horizontaloffset); 
+    icon.style.top = verticaloffset + "px";
+    icon.style.left = horizontaloffset + "px";
+
+    icon.setAttribute("draggable", true);
+    icon.ondblclick = function() {makeWidget(elem.id, elem.name, elem.width, elem.height, horizontaloffset, verticaloffset)}; 
     icon.addEventListener("mousedown", (event) => dragMouseDown(event, icon));
     icon.style.setProperty("position", "absolute");
-    icon.setAttribute("draggable", true);
-    console.log(icon);
+    verticaloffset += ICONSIZE;
+
+    icon.appendChild(imgElem);
+    icon.appendChild(spanElem);
+    iconContainer.appendChild(icon);
 }
 
 // Source - https://stackoverflow.com/a/6593467

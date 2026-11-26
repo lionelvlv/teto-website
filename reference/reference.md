@@ -17,3 +17,6 @@ SPEC
 - file explorer
 - settings
 - draggable desktop icons
+- rhythm game
+- 2048
+- krillion
