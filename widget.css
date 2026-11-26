@@ -2,7 +2,6 @@
 	position: absolute;
 	width: 250px;
 	height: 250px;
-	resize: both;
   overflow: hidden;
 	top: 100px;
 	left: 100px;
@@ -50,24 +49,10 @@
 	filter: brightness(0.5);
 }
 
-.close {
-	background: url("assets/close.png");
-	background-size: contain;
-}
-.fullscreen {
-	background: url("assets/fullscreen.png");
-	background-size: contain;
-}
-.minimize {
-	background: url("assets/minimize.png");
-	background-size: contain;
-}
-
 .restore {
 	display:none;
-	background: url("assets/restore.png");
-	background-size: contain;
 }
+
 .maximized .restore {
 	display:inline;
 }
