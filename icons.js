@@ -87,9 +87,9 @@ for (let elem of icons) {
 // Source - https://stackoverflow.com/a/6593467
 // Posted by fulmicoton, modified by community. See post 'Timeline' for change history
 // Retrieved 2026-11-25, License - CC BY-SA 3.0
-function snapToGrip(val,gridSize) {
+function snapToGrid(val,gridSize) {
     var snap_candidate = gridSize * Math.floor(val/gridSize);
-    if (val - snap_candidate < 2) {
+    if (Math.abs(val - snap_candidate) < 64) {
         return snap_candidate;
     }
     else {
@@ -110,8 +110,11 @@ function dragMouseDown(e, icon) {
     function elementDrag(e) {
         e.preventDefault();
         icon.style.position = 'absolute';
-        icon.style.top = e.clientY + 'px';
-        icon.style.left = e.clientX + 'px';
+        icon.style.top = snapToGrid(Math.max(Math.min(e.clientY, 730), 0), ICONSIZE) + 'px';
+        icon.style.left = snapToGrid(Math.max(Math.min(e.clientX, 1800), 0), ICONSIZE) + 'px';
+        // icon.style.top = e.clientY + 'px';
+        // icon.style.top = e.clientY + 'px';
+        // icon.style.left = e.clientX + 'px';
     }
 
     function closeDragElement() {

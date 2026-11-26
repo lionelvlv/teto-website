@@ -20,3 +20,6 @@ SPEC
 - rhythm game
 - 2048
 - krillion
+- startup sound
+- loading screen
+- users
