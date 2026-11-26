@@ -20,7 +20,7 @@ widgetScripts["notes"] = (widget) => {
 		filedropdowncontent.className = "dropdown-content"; 
 
 		filedropdown.appendChild(filedropdowncontent);
-		dropdownContainer.appendchild(filedropdown);
+		dropdownContainer.appendChild(filedropdown);
 	}
 
 	generateDropdowns();
