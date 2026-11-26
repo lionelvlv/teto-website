@@ -1,6 +1,8 @@
 var iconContainer = document.getElementsByClassName("iconContainer")[0];
 
+const WINDOWOFFSET = 100;
 const ICONSIZE = 100;
+const MAXVERTICALOFFSET = 1080 - 300;
 var horizontaloffset = 0
 var verticaloffset = 0;
 
@@ -65,16 +67,18 @@ for (let elem of icons) {
     let spanElem = document.createElement("span");
     spanElem.innerHTML = elem.name;
 
-    console.log(icon, verticaloffset, horizontaloffset); 
     icon.style.top = verticaloffset + "px";
     icon.style.left = horizontaloffset + "px";
 
     icon.setAttribute("draggable", true);
-    icon.ondblclick = function() {makeWidget(elem.id, elem.name, elem.width, elem.height, horizontaloffset, verticaloffset)}; 
+    icon.ondblclick = function() {makeWidget(elem.id, elem.name, elem.width, elem.height, WINDOWOFFSET, WINDOWOFFSET)};
     icon.addEventListener("mousedown", (event) => dragMouseDown(event, icon));
     icon.style.setProperty("position", "absolute");
     verticaloffset += ICONSIZE;
-
+    if (verticaloffset > MAXVERTICALOFFSET) {
+        verticaloffset = 0;
+        horizontaloffset += ICONSIZE;
+    }
     icon.appendChild(imgElem);
     icon.appendChild(spanElem);
     iconContainer.appendChild(icon);
