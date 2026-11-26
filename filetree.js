@@ -23,7 +23,7 @@ class FileNode {
 				return this.value;
 			}
 
-			if (isLeaf()) {
+			if (this.isLeaf()) {
 				return null;
 			}
 
@@ -43,5 +43,6 @@ thisPC.addChild("Desktop");
 thisPC.addChild("Games");
 thisPC.addChild("Users");
 thisPC.addChild("Program Files");
-thisPC.addChild("tetoOS");
-
+thisPC.addChild("tetoOS", "test");
+// test get
+console.log(thisPC.get("tetoOS"));
