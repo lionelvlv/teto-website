@@ -131,12 +131,14 @@ function dragMouseDown(e, icon) {
             currDiv.style = "display: flex; flex-direction: column;"
             icon.appendChild(currDiv);
             currDiv.style.position = 'absolute';
+            currDiv.style.opacity = 0.5;
         }
         let newX = startX - e.clientX;
         let newY = startY - e.clientY;
 
         startX = e.clientX;
         startY = e.clientY;
+        console.log(startX, startY, newX, newY);
 
         currDiv.style.top = currDiv.offsetTop - newY + 'px';
         currDiv.style.left = currDiv.offsetLeft - newX + 'px';
