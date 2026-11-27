@@ -111,6 +111,7 @@ function dragMouseDown(e, icon) {
    icon_onmouseup = elementTeleport;
     // call a function whenever the cursor moves:
    icon_onmousemove = elementDrag;
+    // where mouse is currently is when first clicked
     let startX = e.clientX;
     let startY = e.clientY;
     function elementDrag(e) {
@@ -133,13 +134,17 @@ function dragMouseDown(e, icon) {
             currDiv.style.position = 'absolute';
             currDiv.style.opacity = 0.5;
         }
+        // start pos - new current positions
+        // distance between both
         let newX = startX - e.clientX;
         let newY = startY - e.clientY;
 
+        // reset start pos for next move (where mouse is currently at)
         startX = e.clientX;
         startY = e.clientY;
-        console.log(startX, startY, newX, newY);
+        // console.log(startX, startY, newX, newY);
 
+        // offsetTop, offsetLeft top, left pos relative to parent
         currDiv.style.top = currDiv.offsetTop - newY + 'px';
         currDiv.style.left = currDiv.offsetLeft - newX + 'px';
     }
