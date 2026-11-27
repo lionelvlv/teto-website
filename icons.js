@@ -157,7 +157,6 @@ function dragMouseDown(e, icon) {
         icon_onmouseup = null;
         icon_onmousemove = null;
         icon.removeChild(currDiv);
-        currDiv.style = "";
         currDiv = null;
         currImage = null;
         currSpan = null;

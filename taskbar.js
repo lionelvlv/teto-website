@@ -29,7 +29,17 @@ function removeTask(widget) {
 }
 
 
-function updateTaskBar() {	
+function updateTaskBar(widget=null, name=null) {
+	if (widget && name) {
+		for (currTask of taskBar.children) {
+			let taskbarName = currTask.querySelector(".widgetName").innerHTML;
+			let widgetName = widget.querySelector(".widgetName").innerHTML
+			if (taskbarName == widgetName) {
+				currTask.querySelector(".widgetName").innerHTML = name;
+				break;
+			}
+		}
+	}
 	for (let widget of widgets) {
 		if (widget.classList.contains("minimized")) {
 				widget.task.classList.add("taskMinimized");	

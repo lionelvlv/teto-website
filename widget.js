@@ -148,11 +148,9 @@ function over(e, widget) {
 	
 }
 function updateName(name, widget) {
+	updateTaskBar(widget, name);
 	var titleElement = widget.querySelector(".widgetName");
 	titleElement.innerHTML = name; 
-	widget.title = name; // Used by taskbar.js
-	addTask(widget);
-	updateTaskBar();
 }
 
 function click(event, widget) {

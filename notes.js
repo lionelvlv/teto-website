@@ -1,31 +1,7 @@
 widgetScripts["notes"] = (widget) => {
-	var newNotesbtn = widget.querySelector(".new-notes-file-btn");
-	var saveNotesbtn = widget.querySelector(".save-notes-file-btn");
-	var saveAsNotesbtn = widget.querySelector(".save2-notes-file-btn");
-	var openNotesbtn = widget.querySelector(".open-notes-file-btn");
-
 	var dropdownContainer = widget.querySelector(".dropdown-container");
+	var noteText = widget.querySelector(".noteText");
 
-	// newNotesbtn.addEventListener("click", () => newNote());
-	// saveNotesbtn.addEventListener("click", () => saveNotes());
-	// openNotesbtn.addEventListener("click", () => openNotes());
-	// saveAsNotesbtn.addEventListener("click", () => saveAs());
-
-	// function generateDropdowns() {
-	// 	var filedropdown = document.createElement("div");
-	// 	filedropdown.className = "dropdown";
-	// 	filedropdown.innerHTML = "File";
-
-	// View	var filedropdowncontent = document.createElement("div");
-	// 	filedropdowncontent.className = "dropdown-content"; 
-
-	// 	filedropdown.appendChild(filedropdowncontent);
-	// 	dropdownContainer.appendChild(filedropdown);
-	// }
-
-	// generateDropdowns();
-	//
-	
 	function build() {
 		generateDropdown('File', ["New", "Open", "Save", "Save As"], [newNote, openNote, saveNote, saveAs], dropdownContainer); 
 		generateDropdown('Edit', ["Undo", "Cut", "Copy", "Paste", "Delete"], [undoNoteText, cutNoteText, copyNoteText, pasteNoteText, deleteNoteText], dropdownContainer); 
@@ -36,13 +12,23 @@ widgetScripts["notes"] = (widget) => {
 
 	build();
 
-	function updateNoteName(name) {
-		updateName(name, widget);
+// HELPERS
+	function unsavedChangesCheck() {
+		console.log("unsaved changes");
 	}
 
+	function unsavedWarningPopup() {
+		console.log("unsaved warning");
+	}
+
+// ############################################################### 
 	function newNote() {
+		if (unsavedChangesCheck()) {
+			unsavedWarningPopup();
+		}
 		console.log("new note");
-		updateNoteName("test");
+		updateName("Untitled", widget);
+		noteText.value = "";
 	}
 
 	function saveNote() {
