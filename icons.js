@@ -64,13 +64,14 @@ for (let elem of icons) {
     let imgElem = document.createElement("img");
     imgElem.src = elem.image;
     
+    imgElem.setAttribute("draggable", true);
     let spanElem = document.createElement("span");
     spanElem.innerHTML = elem.name;
 
     icon.style.top = verticaloffset + "px";
     icon.style.left = horizontaloffset + "px";
 
-    icon.setAttribute("draggable", true);
+    // icon.setAttribute("draggable", true);
     icon.ondblclick = function() {makeWidget(elem.id, elem.name, elem.width, elem.height, WINDOWOFFSET, WINDOWOFFSET)};
     icon.addEventListener("mousedown", (event) => dragMouseDown(event, icon));
     icon.style.setProperty("position", "absolute");
@@ -89,38 +90,70 @@ for (let elem of icons) {
 // Retrieved 2026-11-25, License - CC BY-SA 3.0
 function snapToGrid(val,gridSize) {
     var snap_candidate = gridSize * Math.floor(val/gridSize);
-    if (Math.abs(val - snap_candidate) < 64) {
-        return snap_candidate;
-    }
-    else {
-        return null;
-    }
+    return snap_candidate;
+    // if (Math.abs(val - snap_candidate) < 64) {
+    //     return snap_candidate;
+    // }
+    // else {
+    //     return null;
+    // }
 }
 
 icon_onmouseup = null;
 icon_onmousemove = null;
+let currImage = null;
+let currSpan = null;
+let currDiv = null;
 
 function dragMouseDown(e, icon) {
     e.preventDefault();
     // get the mouse cursor position at startup:
-   icon_onmouseup = closeDragElement;
+   icon_onmouseup = elementTeleport;
     // call a function whenever the cursor moves:
    icon_onmousemove = elementDrag;
-
+    let startX = e.clientX;
+    let startY = e.clientY;
     function elementDrag(e) {
+        if (currSpan == null) {
+            let refSpan = icon.children[1];
+            currSpan = document.createElement("span");
+            currSpan.innerHTML = refSpan.innerHTML;
+        }
+        if (currImage == null) {
+            let refImage = icon.children[0];
+            currImage = document.createElement("img");
+            currImage.src = refImage.src;
+        }
+        if (currDiv == null) {
+            currDiv = document.createElement("div");
+            currDiv.appendChild(currImage);
+            currDiv.appendChild(currSpan);
+            currDiv.style = "display: flex; flex-direction: column;"
+            icon.appendChild(currDiv);
+            currDiv.style.position = 'absolute';
+        }
+        let newX = startX - e.clientX;
+        let newY = startY - e.clientY;
+
+        startX = e.clientX;
+        startY = e.clientY;
+
+        currDiv.style.top = currDiv.offsetTop - newY + 'px';
+        currDiv.style.left = currDiv.offsetLeft - newX + 'px';
+    }
+
+    function elementTeleport(e) {
         e.preventDefault();
         icon.style.position = 'absolute';
         icon.style.top = snapToGrid(Math.max(Math.min(e.clientY, 730), 0), ICONSIZE) + 'px';
         icon.style.left = snapToGrid(Math.max(Math.min(e.clientX, 1800), 0), ICONSIZE) + 'px';
-        // icon.style.top = e.clientY + 'px';
-        // icon.style.top = e.clientY + 'px';
-        // icon.style.left = e.clientX + 'px';
-    }
-
-    function closeDragElement() {
-        // stop moving when mouse button is released:
-					icon_onmouseup = null;
- 		      icon_onmousemove = null;
+        icon_onmouseup = null;
+        icon_onmousemove = null;
+        icon.removeChild(currDiv);
+        currDiv.style = "";
+        currDiv = null;
+        currImage = null;
+        currSpan = null;
     }
 }
 

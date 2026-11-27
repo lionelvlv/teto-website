@@ -6,7 +6,7 @@ desktop.addEventListener("click", startUpSound)
 
 function startUpSound() {
 	WINDOWS_STARTUP_SOUND.volume = 0.3;
-	WINDOWS_STARTUP_SOUND.play();
+	// WINDOWS_STARTUP_SOUND.play();
 	// so this shit only plays once
 	desktop.removeEventListener("click", startUpSound);
 }

@@ -69,22 +69,6 @@ body.surprise {
 	border: none;
 }
 
-.new-notes-file-btn:hover {
+.dropdown-btn:hover {
 	background-color: blue;
 	color: white;
-}
-
-.open-notes-file-btn:hover{
-	background-color: blue;
-	color: white;
-}
-
-.save-notes-file-btn:hover{
-	background-color: blue;
-	color: white;
-}
-
-.save2-notes-file-btn:hover {
-	background-color: blue;
-	color: white;
-}
