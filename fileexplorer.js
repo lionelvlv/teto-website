@@ -7,9 +7,26 @@ widgetScripts["file-explorer"] = (widget) => {
 	var sidebar = main[0];
 	var footer = fileExplorerBody.children[3];
 
-	generateDropdown("File", ["Open", "New", "Create Shortcut", "Delete", "Rename", "Properties", "Close"], [], widget);
-	generateDropdown("Edit", ["Undo", "Cut", "Copy", "Paste", "Paste Shortcut"], [], widget);
-	generateDropdown("View", [], [], widget);
-	generateDropdown("Tools", [], [], widget);
-	generateDropdown("Help", [], [], widget);
+	widget.willHePerform = willHePerform;
+	
+	generateDropdown("File", ["Open", "New", "Create Shortcut", "Delete", "Rename", "Properties", "Close"], widget);
+	generateDropdown("Edit", ["Undo", "Cut", "Copy", "Paste", "Paste Shortcut"], widget);
+	generateDropdown("View", [], widget);
+	generateDropdown("Tools", [], widget);
+	generateDropdown("Help", [], widget);
+
+
+	function willHePerform(id) {
+		id = id.toLowerCase();
+
+		switch(id) {
+			case "open":
+				console.log("open");
+				break;
+			case "new":
+				console.log("new");
+				break;
+		}
+	}
+
 }

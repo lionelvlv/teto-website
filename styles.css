@@ -79,6 +79,19 @@ body.surprise {
 	display: flex; 
 	flex-direction: row;
 }
-.file-explorer .sidebar {
+.widgetContent .file-explorer-body .main .sidebar {
 	background-color: blue;
+	display: flex;
+	flex-direction: column;
 }
+
+.widgetContent .file-explorer-body .main .sidebar .submenu {
+	margin-top: 5px;
+	background-color: cyan;
+}
+
+.widgetContent .file-explorer-body .main {
+	display: flex;
+	flex-direction: row;
+}
+

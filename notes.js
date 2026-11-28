@@ -1,9 +1,11 @@
 widgetScripts["notes"] = (widget) => {
 	var noteText = widget.querySelector(".noteText");
 
+	widget.willHePerform = willHePerform;
+
 	function build() {
-		generateDropdown('File', ["New", "Open", "Save", "Save As"], [newNote, openNote, saveNote, saveAs], widget); 
-		generateDropdown('Edit', ["Undo", "Cut", "Copy", "Paste", "Delete"], [undoNoteText, cutNoteText, copyNoteText, pasteNoteText, deleteNoteText], widget); 
+		generateDropdown('File', ["New", "Open", "Save", "Save As"], widget); 
+		generateDropdown('Edit', ["Undo", "Cut", "Copy", "Paste", "Delete"], widget); 
 		// generateDropdown('Format', ["Word Wrap", "Font"], [wordwrapNote, fontNote], dropdownContainer); 
 		// generateDropdown('View', ["Status Bar"], [noteStatusBar], dropdownContainer); 
 		// generateDropdown('Help', ["Help Topics", "About Notepad"], [helpTopicsNote, aboutNote], dropdownContainer); 
@@ -21,78 +23,26 @@ widgetScripts["notes"] = (widget) => {
 	}
 
 // ############################################################### 
-	function newNote() {
-		if (unsavedChangesCheck()) {
-			unsavedWarningPopup();
+	
+	function willHePerform(id) {
+		id = id.toLowerCase();
+		switch (id) {
+			case "new":
+				if (unsavedChangesCheck()) {
+					unsavedWarningPopup();
+				}
+				console.log("new note");
+				updateName("Untitled", widget);
+				noteText.value = "";
+				break;
+
+			case "open":
+				console.log("open");
+				break;
 		}
-		console.log("new note");
-		updateName("Untitled", widget);
-		noteText.value = "";
 	}
 
-	function saveNote() {
-		console.log("save note");
+	function newNote() {
 	}
-
-	function saveAs() {
-		console.log("save as");
-	}
-
-	function openNote() {
-		console.log("open notes"); 
-	}
-
-// ############################################################### 
-	function undoNoteText() {
-		document.execCommand("undo");
-	}
-
-	function cutNoteText() {
-		noteText.focus();
-		document.execCommand("cut");
-
-	}
-
-	function copyNoteText() {
-		noteText.focus();
-		document.execCommand("copy");
-
-	}
-
-	function pasteNoteText() {
-		noteText.focus();
-		document.execCommand("paste");
-	}
-
-	function deleteNoteText() {
-		noteText.focus();
-		document.execCommand("delete");
-	}
-
-// ############################################################### 
-	
-	function wordwrapNote() {
-		console.log("word wrap note");
-	}
-
-	function fontNote() {
-		console.log("font note");
-	}
-// ############################################################### 
-
-	function noteStatusBar() {
-		console.log("status bar");
-	}
-// ############################################################### 
-
-	function helpTopicsNote() {
-		console.log("help topics note");
-	}
-
-	function aboutNote() {
-		console.log("about note");
-	}
-
-	
 
 }
