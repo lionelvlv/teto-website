@@ -1,10 +1,9 @@
 widgetScripts["notes"] = (widget) => {
-	var dropdownContainer = widget.querySelector(".dropdown-container");
 	var noteText = widget.querySelector(".noteText");
 
 	function build() {
-		generateDropdown('File', ["New", "Open", "Save", "Save As"], [newNote, openNote, saveNote, saveAs], dropdownContainer); 
-		generateDropdown('Edit', ["Undo", "Cut", "Copy", "Paste", "Delete"], [undoNoteText, cutNoteText, copyNoteText, pasteNoteText, deleteNoteText], dropdownContainer); 
+		generateDropdown('File', ["New", "Open", "Save", "Save As"], [newNote, openNote, saveNote, saveAs], widget); 
+		generateDropdown('Edit', ["Undo", "Cut", "Copy", "Paste", "Delete"], [undoNoteText, cutNoteText, copyNoteText, pasteNoteText, deleteNoteText], widget); 
 		// generateDropdown('Format', ["Word Wrap", "Font"], [wordwrapNote, fontNote], dropdownContainer); 
 		// generateDropdown('View', ["Status Bar"], [noteStatusBar], dropdownContainer); 
 		// generateDropdown('Help', ["Help Topics", "About Notepad"], [helpTopicsNote, aboutNote], dropdownContainer); 

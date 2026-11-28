@@ -17,7 +17,7 @@ function makeWidget(id, name = "default", w = 200, h = 200, x = 100, y = 100) {
 	// Similarly grab widget template and clone it.
 	var widget = widgetTemplate.content.querySelector(".widget").cloneNode(true);
 	// Puts contents inside widget. 
-	widget.appendChild(contents);
+	widget.querySelector(".widgetBox").appendChild(contents);
 
 	var titleElement = widget.querySelector(".widgetName");
 	titleElement.innerHTML = name; 

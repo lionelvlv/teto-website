@@ -1,9 +1,9 @@
-function generateDropdown(dropdownName, namesLst, contentLst, parent) {
+function generateDropdown(dropdownName, namesLst, contentLst, widget) {
 	var currDropdown = document.createElement("div");
 	currDropdown.className = "dropdown";
 	currDropdown.innerHTML = dropdownName;
 	generateDropdownHelper(generateObjList(namesLst, contentLst), currDropdown);
-	parent.appendChild(currDropdown);
+	widget.querySelector(".dropdown-container").appendChild(currDropdown);
 }
 
 function generateDropdownHelper(objList, parentElem) {
@@ -18,7 +18,6 @@ function generateDropdownHelper(objList, parentElem) {
 	  currDiv.innerHTML = currName;
 		div.appendChild(currDiv);
 	}
-	console.log(div);
 	parentElem.appendChild(div);
 }
 

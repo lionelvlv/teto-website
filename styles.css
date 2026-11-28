@@ -76,7 +76,6 @@ body.surprise {
 
 .dropdown-container {
 	background-color: #d6d3d6; 
-	height: 20px; 
 	display: flex; 
 	flex-direction: row;
 }
