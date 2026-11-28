@@ -95,3 +95,7 @@ body.surprise {
 	flex-direction: row;
 }
 
+.widgetContent .filder-explorer-body .main .folders .folder {
+	background-color: yellow;
+}
+
