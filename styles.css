@@ -72,3 +72,14 @@ body.surprise {
 .dropdown-btn:hover {
 	background-color: blue;
 	color: white;
+}
+
+.dropdown-container {
+	background-color: #d6d3d6; 
+	height: 20px; 
+	display: flex; 
+	flex-direction: row;
+}
+.file-explorer .sidebar {
+	background-color: blue;
+}

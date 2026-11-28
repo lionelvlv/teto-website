@@ -55,6 +55,13 @@ const icons = [
         width: 500,
         height: 500,
         image: "assets/tetocrafticon.png", 
+    },
+    {
+        name: 'file explorer',
+        id: 'file-explorer',
+        width: 500,
+        height: 500,
+        image: "assets/icon.png",
     }
 ] 
 

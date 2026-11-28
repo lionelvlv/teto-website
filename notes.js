@@ -5,9 +5,9 @@ widgetScripts["notes"] = (widget) => {
 	function build() {
 		generateDropdown('File', ["New", "Open", "Save", "Save As"], [newNote, openNote, saveNote, saveAs], dropdownContainer); 
 		generateDropdown('Edit', ["Undo", "Cut", "Copy", "Paste", "Delete"], [undoNoteText, cutNoteText, copyNoteText, pasteNoteText, deleteNoteText], dropdownContainer); 
-		generateDropdown('Format', ["Word Wrap", "Font"], [wordwrapNote, fontNote], dropdownContainer); 
-		generateDropdown('View', ["Status Bar"], [noteStatusBar], dropdownContainer); 
-		generateDropdown('Help', ["Help Topics", "About Notepad"], [helpTopicsNote, aboutNote], dropdownContainer); 
+		// generateDropdown('Format', ["Word Wrap", "Font"], [wordwrapNote, fontNote], dropdownContainer); 
+		// generateDropdown('View', ["Status Bar"], [noteStatusBar], dropdownContainer); 
+		// generateDropdown('Help', ["Help Topics", "About Notepad"], [helpTopicsNote, aboutNote], dropdownContainer); 
 	}
 
 	build();
@@ -45,23 +45,29 @@ widgetScripts["notes"] = (widget) => {
 
 // ############################################################### 
 	function undoNoteText() {
-		console.log("undo");
+		document.execCommand("undo");
 	}
 
 	function cutNoteText() {
-		console.log("cut");
+		noteText.focus();
+		document.execCommand("cut");
+
 	}
 
 	function copyNoteText() {
-		console.log("copy");
+		noteText.focus();
+		document.execCommand("copy");
+
 	}
 
 	function pasteNoteText() {
-		console.log("paste");
+		noteText.focus();
+		document.execCommand("paste");
 	}
 
 	function deleteNoteText() {
-		console.log("delete");
+		noteText.focus();
+		document.execCommand("delete");
 	}
 
 // ############################################################### 

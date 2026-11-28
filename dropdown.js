@@ -18,6 +18,7 @@ function generateDropdownHelper(objList, parentElem) {
 	  currDiv.innerHTML = currName;
 		div.appendChild(currDiv);
 	}
+	console.log(div);
 	parentElem.appendChild(div);
 }
 
